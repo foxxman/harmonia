@@ -1878,9 +1878,10 @@ iframe {
   }
 
   .hello__nets__block__item.book__item::after {
-    width: 13px;
-    height: 13px;
-    margin-top: 0px;
+    margin-top: 7px;
+    -webkit-transform: scale(0.66);
+        -ms-transform: scale(0.66);
+            transform: scale(0.66);
   }
 
   .book__info__nets {
