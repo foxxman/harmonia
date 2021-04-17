@@ -325,6 +325,7 @@ button {
 
 .header__logo img {
   margin: auto;
+  max-height: 56px;
 }
 
 a.header__section {
