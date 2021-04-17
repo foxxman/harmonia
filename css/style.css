@@ -199,15 +199,16 @@ button {
   margin: 10px 0 9px;
   text-align: center;
   font-size: 18px;
-  line-height: 20px;
+  line-height: 23px;
 }
 
 .header__top span:nth-child(2) {
-  border-left: 1px solid #226271;
-  border-right: 1px solid #226271;
+  border-left: 1px solid #769ea7;
+  border-right: 1px solid #769ea7;
 }
 
 .header__bottom {
+  height: 80px !important;
   border-top: 2px #769ea7 solid;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -245,7 +246,6 @@ button {
 }
 
 .header__burger-menu {
-  height: 90px;
   width: 150px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -362,7 +362,7 @@ a.header__section:last-child {
 
 .menu {
   width: 832px;
-  padding-top: 131px;
+  padding-top: 122px;
   position: absolute;
   left: -100%;
   top: 0;
@@ -1248,10 +1248,6 @@ iframe {
   margin-bottom: 70px;
 }
 
-.main.promo {
-  padding-bottom: 252px;
-}
-
 .container {
   max-width: 1620px;
   margin: auto;
@@ -1261,7 +1257,7 @@ iframe {
   font-family: "Playfair Display";
   font-size: 72px;
   line-height: 72px;
-  max-width: 907px;
+  max-width: 910px;
   text-align: left;
   padding: 0;
   position: relative;
@@ -1276,25 +1272,13 @@ iframe {
 
 .title-block.promo {
   padding-top: 57px;
-  padding-bottom: 599px;
+  height: calc(100vh - 124px);
   margin: 0;
-  background-image: url("../img/budva.png");
+  background-image: url("../img/budva.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   position: relative;
-}
-
-.title-block.promo::after {
-  z-index: 99;
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: -o-radial-gradient(27% 25%, ellipse, rgba(0, 0, 0, 0.438), rgba(255, 255, 255, 0));
-  background: radial-gradient(ellipse at 27% 25%, rgba(0, 0, 0, 0.438), rgba(255, 255, 255, 0));
 }
 
 .hello {
@@ -1357,7 +1341,7 @@ iframe {
 .hello__nets {
   max-width: 502px;
   position: relative;
-  top: -126px;
+  top: -190px;
   z-index: 100;
 }
 
@@ -1443,9 +1427,9 @@ iframe {
 }
 
 .book {
-  margin-top: 148px;
+  margin-top: 100px;
   color: #004a5b;
-  padding-bottom: 183px;
+  padding-bottom: 100px;
   position: relative;
 }
 
@@ -1454,7 +1438,7 @@ iframe {
   right: 0;
   position: absolute;
   width: 541px;
-  height: 681px;
+  height: calc(100px + 500px);
   background: #004a5b;
   z-index: -1;
 }
@@ -1507,6 +1491,7 @@ iframe {
           box-shadow: 0px 0px 80px #004a5b4d;
   width: 437px;
   height: 561px;
+  margin-top: 22px;
 }
 
 .last {
@@ -1515,7 +1500,7 @@ iframe {
 }
 
 .last__title {
-  margin-bottom: 118px;
+  margin-bottom: 100px;
 }
 
 .last__block {
@@ -1526,7 +1511,6 @@ iframe {
   background-color: #ec8833;
   padding: 45px 149px 56px 206px;
   position: relative;
-  bottom: -41px;
 }
 
 .last__block__text {

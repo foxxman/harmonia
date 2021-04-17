@@ -3,7 +3,8 @@ $(document).ready(function () {
   // const nets = document.querySelector(".hello__nets");
   const netsBlock = document.querySelector(".hello__nets__block");
   const list = document.querySelector(".hello__description__list");
-
+  const netsBlockIdent =
+    (document.documentElement.clientHeight - netsBlock.clientHeight)/2;
   //нижняя точка блока списка
   const listBottom =
     list.clientHeight + $(".hello__description__list").offset().top;
@@ -23,7 +24,7 @@ $(document).ready(function () {
     console.log("click");
     $(".header__burger-menu, .menu").toggleClass("active");
   });
-
+  console.log(document.documentElement.clientHeight);
   //перемещение блока nets
   window.addEventListener("scroll", () => {
     if (document.documentElement.clientWidth > 700) {
@@ -39,9 +40,9 @@ $(document).ready(function () {
         netsBlock.clientHeight;
 
       //дв. вниз
-      if (netsBlockTopWindow <= 15 && netsBlockBottom <= listBottom) {
-        let topAdd = netsBlockTopParent + (15 - netsBlockTopWindow);
-        //чтобы не перескакивал через границу списка
+      if (netsBlockTopWindow <= netsBlockIdent && netsBlockBottom <= listBottom) {
+        let topAdd = netsBlockTopParent + (netsBlockIdent - netsBlockTopWindow);
+        //чтобы не перескакивал через границу снизу
         if (topAdd > maxTopAdd) {
           topAdd = maxTopAdd;
         }
@@ -49,9 +50,9 @@ $(document).ready(function () {
       }
 
       //дв. вверх
-      if (netsBlockBottomWindow <= 15 && netsBlockTopParent >= 0) {
-        let topRemove = netsBlockTopParent - (15 - netsBlockBottomWindow);
-        //чтобы не перескакивал через границу родителя
+      if (netsBlockBottomWindow <= netsBlockIdent && netsBlockTopParent >= 0) {
+        let topRemove = netsBlockTopParent - (netsBlockIdent - netsBlockBottomWindow);
+        //чтобы не перескакивал через границу сверху
         if (topRemove < 0) {
           topRemove = 0;
         }
