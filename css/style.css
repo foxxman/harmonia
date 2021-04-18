@@ -183,6 +183,11 @@ button {
 .header {
   background: #004a5b;
   color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 900;
+  width: 100%;
 }
 
 .header__top {
@@ -208,7 +213,7 @@ button {
 }
 
 .header__bottom {
-  height: 80px !important;
+  height: 76px !important;
   border-top: 2px #769ea7 solid;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -362,8 +367,8 @@ a.header__section:last-child {
 
 .menu {
   width: 832px;
-  padding-top: 122px;
-  position: absolute;
+  padding-top: 118px;
+  position: fixed;
   left: -100%;
   top: 0;
   -webkit-transition: all 0.4s ease;
@@ -1248,6 +1253,21 @@ iframe {
   margin-bottom: 70px;
 }
 
+.text-middle {
+  font-size: 40px;
+  line-height: 51px;
+}
+
+.text-small {
+  font-size: 30px;
+  line-height: 38px;
+}
+
+.text-big {
+  font-size: 72px;
+  line-height: 72px;
+}
+
 .container {
   max-width: 1620px;
   margin: auto;
@@ -1255,8 +1275,6 @@ iframe {
 
 .main-title.promo {
   font-family: "Playfair Display";
-  font-size: 72px;
-  line-height: 72px;
   max-width: 910px;
   text-align: left;
   padding: 0;
@@ -1265,14 +1283,12 @@ iframe {
 }
 
 .main-title.promo.last__title {
-  font-size: 60px;
-  line-height: 64px;
   max-width: 950px;
 }
 
 .title-block.promo {
   padding-top: 57px;
-  height: calc(100vh - 124px);
+  height: calc(100vh - (76px + 42px));
   margin: 0;
   background-image: url("../img/budva.jpeg");
   background-repeat: no-repeat;
@@ -1302,21 +1318,15 @@ iframe {
 
 .hello__description__title {
   font-weight: 500;
-  font-size: 30px;
-  line-height: 38px;
   margin-bottom: 50px;
 }
 
 .hello__description__text {
   font-weight: 500;
-  font-size: 40px;
-  line-height: 51px;
 }
 
 .hello__description__list {
   margin-top: 50px;
-  font-size: 20px;
-  line-height: 30px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1347,9 +1357,6 @@ iframe {
 
 .hello__nets__block {
   position: relative;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
 }
 
 .hello__nets__block__item {
@@ -1360,8 +1367,6 @@ iframe {
   width: 502px;
   height: 89px;
   color: #ffffff;
-  font-size: 30px;
-  line-height: 38px;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -1371,18 +1376,24 @@ iframe {
   padding: 0 30px 0 35px;
   margin-bottom: 12px;
   border-radius: 4px;
-  -webkit-transition: all 0.4s ease;
-  -o-transition: all 0.4s ease;
-  transition: all 0.4s ease;
+  -webkit-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  transition: 0.3s ease;
+  -webkit-transition-property: opacity, -webkit-box-shadow;
+  transition-property: opacity, -webkit-box-shadow;
+  -o-transition-property: box-shadow, opacity;
+  transition-property: box-shadow, opacity;
+  transition-property: box-shadow, opacity, -webkit-box-shadow;
+}
+
+.hello__nets__block__item:last-child {
+  margin-bottom: 0;
 }
 
 .hello__nets__block__item::after {
   content: url("../img/arrows/arrow_right-down.svg");
   width: 32px;
   margin-top: 16px;
-  -webkit-transition: all 0.4s ease;
-  -o-transition: all 0.4s ease;
-  transition: all 0.4s ease;
   opacity: 0.4;
 }
 
@@ -1457,16 +1468,12 @@ iframe {
 }
 
 .book__info__title {
-  font-size: 46px;
-  line-height: 58px;
   font-weight: 500;
   max-width: 667px;
   margin-bottom: 37px;
 }
 
 .book__info__subtitle {
-  font-size: 20px;
-  line-height: 30px;
   margin-bottom: 15px;
 }
 
@@ -1504,29 +1511,36 @@ iframe {
 }
 
 .last__block {
-  max-width: 1100px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  width: 57%;
+  display: flex;
   background-color: #ec8833;
-  padding: 45px 149px 56px 206px;
+  padding: 45px 112px 56px 0px;
   position: relative;
 }
 
 .last__block__text {
   max-width: 657px;
-  font-size: 46px;
-  line-height: 58px;
   font-weight: 500;
 }
 
-.last__block__text span {
+.last__block__text span:nth-child(2) {
   border-bottom: 3px white solid;
-  padding-bottom: 1px;
+  padding-bottom: 0px;
+}
+
+.last__block__text span:first-child {
+  font-family: "Roboto", sans-serif;
 }
 
 .last__block__days {
-  margin-right: 14px;
+  font-family: "Roboto", sans-serif;
+  margin-right: 55px;
   font-size: 120px;
   line-height: 107px;
   text-align: center;
@@ -1540,6 +1554,11 @@ iframe {
   top: -10px;
 }
 
+.text-justify,
+li {
+  text-align: justify !important;
+}
+
 @media (max-width: 1730px) {
   .book__bg {
     width: 420px;
@@ -1549,7 +1568,7 @@ iframe {
 @media (max-width: 1650px) {
   .main-title.promo {
     margin-left: 50px;
-    max-width: 805px;
+    max-width: 920px;
   }
 
   .hello__nets {
@@ -1562,6 +1581,17 @@ iframe {
 
   .book__info {
     margin-left: 20px;
+  }
+
+  .last__block__days {
+    margin-right: 25px;
+  }
+}
+
+@media (max-width: 1640px) {
+  .last__block {
+    width: 827px;
+    padding: 55px 88px 47px 80px;
   }
 }
 
@@ -1605,8 +1635,6 @@ iframe {
 
   .hello__nets__block__item.book__item span {
     display: block;
-    font-size: 20px;
-    line-height: 25px;
   }
 }
 
@@ -1686,42 +1714,38 @@ iframe {
   }
 
   .last__title.main-title.promo {
-    font-size: 44px;
-    line-height: 54px;
     max-width: 777px;
-  }
-
-  .last__block {
-    width: 827px;
-    height: 214px;
-    padding: 55px 88px 47px 96px;
-  }
-
-  .last__block__days {
-    font-size: 96px;
-    line-height: 83px;
-  }
-
-  .last__block__days span {
-    font-size: 20px;
   }
 
   .last__block__text {
     max-width: 559px;
-    font-size: 30px;
-    line-height: 38px;
+  }
+}
+
+@media (max-width: 1350px) {
+  .text-big {
+    font-size: 64px;
+    line-height: 68px;
   }
 
-  .main.promo {
-    padding-bottom: 152px;
+  .text-middle {
+    font-size: 36px;
+    line-height: 43px;
+  }
+
+  .text-small {
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  .book__info__nets.text-middle span {
+    font-size: 30px;
   }
 }
 
 @media (max-width: 1230px) {
   .book__info__title {
     max-width: 506px;
-    font-size: 36px;
-    line-height: 46px;
   }
 
   .book__img {
@@ -1745,15 +1769,8 @@ iframe {
 }
 
 @media (max-width: 1170px) {
-  .main-title.promo {
-    font-size: 64px;
-    line-height: 72px;
-  }
-
   .hello__description__text {
     max-width: 760px;
-    font-size: 36px;
-    line-height: 46px;
   }
 
   .hello__nets {
@@ -1767,8 +1784,6 @@ iframe {
   }
 
   .hello__description__title {
-    font-size: 22px;
-    line-height: 28px;
     margin-bottom: 20px;
   }
 
@@ -1841,6 +1856,10 @@ iframe {
 }
 
 @media (max-width: 970px) {
+  .book__info__nets.text-middle span {
+    font-size: 18px;
+  }
+
   .book {
     margin-top: 50px;
   }
@@ -1850,11 +1869,6 @@ iframe {
     height: 48px;
     -ms-flex-pack: distribute;
         justify-content: space-around;
-  }
-
-  .hello__nets__block__item.book__item span {
-    font-size: 16px;
-    line-height: 20px;
   }
 
   .hello__nets__block__item.book__item img {
@@ -1874,15 +1888,11 @@ iframe {
   }
 
   .book__info__subtitle {
-    max-width: 230px;
-    font-size: 14px;
-    line-height: 20px;
+    max-width: 310px;
   }
 
   .book__info__title {
     max-width: 335px;
-    font-size: 22px;
-    line-height: 28px;
   }
 
   .book__img img {
@@ -1918,20 +1928,15 @@ iframe {
 
 @media (max-width: 930px) {
   .hello__description__list li {
-    font-size: 16px;
-    line-height: 20px;
     margin-right: 22px;
     max-width: 320px;
   }
+}
 
-  .hello__description__text {
-    font-size: 22px;
-    line-height: 28px;
-  }
-
-  .hello__description__title {
-    font-size: 18px;
-    line-height: 20px;
+@media (max-width: 900px) {
+  .text-big {
+    font-size: 52px;
+    line-height: 62px;
   }
 }
 
@@ -1945,10 +1950,9 @@ iframe {
   }
 
   .main-title.promo {
-    font-size: 42px;
-    line-height: 62px;
     max-width: 550px;
     margin-left: 20px;
+    margin-right: 20px;
   }
 
   .hello__description__list li {
@@ -2009,23 +2013,19 @@ iframe {
   .last {
     padding-top: 50px;
     position: relative;
-    padding-bottom: 135px;
   }
 
   .last__title.main-title.promo {
-    font-size: 28px;
-    line-height: 35px;
-    max-width: 395px;
+    max-width: 540px;
     margin-bottom: 0;
   }
 
   .last__block {
-    width: 642px;
-    height: 211px;
+    width: 95vw;
     padding: 31px 55px 35px 37px;
-    position: absolute;
-    bottom: -100px;
-    right: 0;
+    margin-top: 40px;
+    margin-right: 0;
+    margin-left: auto;
   }
 }
 
@@ -2039,7 +2039,7 @@ iframe {
   }
 
   .book {
-    padding-bottom: 17px;
+    padding-bottom: 0px;
   }
 
   .book .container {
@@ -2054,11 +2054,15 @@ iframe {
 
   .book__bg {
     width: 45%;
-    height: 340px;
+    height: 351px;
   }
 
   .book__img {
     padding: 0;
+  }
+
+  .book__img img {
+    margin-top: 0;
   }
 
   .book__info__nets {
@@ -2078,6 +2082,21 @@ iframe {
 }
 
 @media (max-width: 700px) {
+  .text-big {
+    font-size: 42px;
+    line-height: 42px;
+  }
+
+  .text-small {
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  .text-middle {
+    font-size: 22px;
+    line-height: 28px;
+  }
+
   .hello__description {
     padding-top: 0;
     margin: 0;
@@ -2133,46 +2152,81 @@ iframe {
   }
 
   .title-block.promo {
-    padding-top: 331px;
-    padding-bottom: 36px;
+    background-image: url("../img/HarmoniaBecici.png");
+    padding: 0;
+    height: calc(100vh - (76px + 42px));
+  }
+
+  .title-block.promo::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: -o-radial-gradient(#080808, #fffaf9);
+    background: radial-gradient(#080808, #fffaf9);
+  }
+
+  .title-block.promo .container {
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    padding-bottom: 46px;
   }
 
   .main-title.promo {
-    line-height: 32px;
-    font-size: 32px;
-    max-width: 334px;
+    max-width: 450px;
   }
 }
 
 @media (max-width: 680px) {
   .last__title.main-title.promo {
-    font-size: 24px;
-    line-height: 30px;
     max-width: 335px;
   }
 
   .last__block {
     padding: 28px 20px 26px 50px;
-    width: 424px;
-    height: 173px;
-    bottom: -50px;
-  }
-
-  .last__block__text {
-    font-size: 18px;
-    line-height: 29px;
-    max-width: 264px;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
   }
 
   .last {
     padding-top: 30px;
-    padding-bottom: 135px;
+  }
+
+  .last__block__days {
+    font-size: 70px;
+    line-height: 70px;
+  }
+
+  .last__block__days span {
+    font-size: 25px;
+    line-height: 25px;
   }
 }
 
 @media (max-width: 610px) {
   .menu__body__line {
     padding-left: 80px;
+  }
+}
+
+@media (max-width: 600px) {
+  .text-big {
+    font-size: 37px;
+    line-height: 37px;
   }
 }
 
@@ -2183,10 +2237,6 @@ iframe {
 
   .header__burger-menu {
     width: 70px;
-  }
-
-  .header__burger-menu {
-    height: 64px;
   }
 
   .header__section {
@@ -2240,34 +2290,13 @@ iframe {
 }
 
 @media (max-width: 440px) {
-  .title-block.promo {
-    background-image: url("../img/HarmoniaBecici.png");
-  }
-
-  .last__block__text {
+  .last__block__text.text-middle {
     font-size: 16px;
     line-height: 20px;
   }
 
-  .last__block__text {
-    font-size: 16px;
-    line-height: 23px;
-  }
-
-  .last__block__days {
-    font-size: 80px;
-    line-height: 69px;
-  }
-
   .last__block {
-    padding: 28px 20px 26px 50px;
-    width: 355px;
-    height: 136px;
-    bottom: -30px;
-  }
-
-  .main.promo {
-    padding-bottom: 97px;
+    padding: 17px 20px 0px 45px;
   }
 }
 
@@ -2291,7 +2320,7 @@ iframe {
   }
 
   .book__bg {
-    height: 235px;
+    height: 234px;
   }
 }
 
@@ -2307,6 +2336,17 @@ iframe {
 
   .menu__body__title {
     margin-top: 15px;
+  }
+}
+
+@media (max-width: 365px) {
+  .last__block {
+    width: 100%;
+    height: auto;
+  }
+
+  .last__block__days {
+    margin-right: 35px;
   }
 }
 
@@ -2349,7 +2389,7 @@ iframe {
 
 .webp .title-block.promo{ background-image: url(../img/budva.webp); }
 
-@media (max-width: 440px){
+@media (max-width: 700px){
 
   .webp .title-block.promo{ background-image: url(../img/HarmoniaBecici.webp); }
 }
