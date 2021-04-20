@@ -2051,6 +2051,15 @@ iframe {
     padding-left: 56px;
   }
 
+  .book__info__nets {
+    max-width: 100%;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: baseline;
+        -ms-flex-align: baseline;
+            align-items: baseline;
+  }
+
   .book {
     padding-bottom: 0px;
   }
@@ -2067,7 +2076,7 @@ iframe {
 
   .book__bg {
     width: 45%;
-    height: 351px;
+    height: 213px;
   }
 
   .book__img {
@@ -2337,6 +2346,15 @@ iframe {
 @media (max-width: 400px) {
   .hello__description__list li {
     max-width: 297px;
+  }
+
+  .book__info__nets {
+    max-width: 100%;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: baseline;
+        -ms-flex-align: baseline;
+            align-items: baseline;
   }
 
   .book__info__title {
