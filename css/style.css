@@ -213,7 +213,7 @@ button {
 }
 
 .header__bottom {
-  height: 76px !important;
+  height: 65px !important;
   border-top: 2px #769ea7 solid;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -330,7 +330,7 @@ button {
 
 .header__logo img {
   margin: auto;
-  max-height: 56px;
+  max-height: 44px;
 }
 
 a.header__section {
@@ -365,9 +365,13 @@ a.header__section:last-child {
   background-color: #ec8833 !important;
 }
 
+.header__section.right__padding {
+  padding: 0 37px;
+}
+
 .menu {
   width: 832px;
-  padding-top: 118px;
+  padding-top: 107px;
   position: fixed;
   left: -100%;
   top: 0;
@@ -1288,7 +1292,7 @@ iframe {
 
 .title-block.promo {
   padding-top: 57px;
-  height: calc(100vh - (76px + 42px));
+  height: calc(100vh - (65px + 42px));
   margin: 0;
   background-image: url("../img/budva.jpeg");
   background-repeat: no-repeat;
@@ -1340,7 +1344,11 @@ iframe {
 .hello__description__list li {
   max-width: 388px;
   margin-bottom: 20px;
-  margin-right: 50px;
+  margin-right: 100px;
+}
+
+.hello__description__list li:nth-child(even) {
+  margin-right: 0;
 }
 
 .hello__description__list li span {
@@ -1498,12 +1506,13 @@ iframe {
           box-shadow: 0px 0px 80px #004a5b4d;
   width: 437px;
   height: 561px;
-  margin-top: 22px;
+  margin-top: -78px;
 }
 
 .last {
   background-color: #004a5b;
   padding-top: 100px;
+  padding-bottom: 100px;
 }
 
 .last__title {
@@ -1603,6 +1612,10 @@ li {
   .header__section {
     padding: 0 40px 0 40px;
   }
+
+  .header__section.right__padding {
+    padding: 0 23px 0 23px;
+  }
 }
 
 @media (max-width: 1570px) {
@@ -1619,6 +1632,10 @@ li {
     -ms-flex-pack: distribute;
         justify-content: space-around;
     margin-bottom: 8px;
+  }
+
+  .hello__nets__block__item.book__item span {
+    font-size: 22px;
   }
 
   .hello__nets__block__item.book__item::after {
@@ -1711,6 +1728,7 @@ li {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+    padding: 0 58px;
   }
 
   .last__title.main-title.promo {
@@ -1928,7 +1946,7 @@ li {
 
 @media (max-width: 930px) {
   .hello__description__list li {
-    margin-right: 22px;
+    margin-right: 45px;
     max-width: 320px;
   }
 }
@@ -2154,7 +2172,7 @@ li {
   .title-block.promo {
     background-image: url("../img/HarmoniaBecici.png");
     padding: 0;
-    height: calc(100vh - (76px + 42px));
+    height: calc(100vh - (65px + 42px) - (20px + 50px));
   }
 
   .title-block.promo::after {
