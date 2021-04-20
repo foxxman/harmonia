@@ -1563,11 +1563,6 @@ iframe {
   top: -10px;
 }
 
-.text-justify,
-li {
-  text-align: justify !important;
-}
-
 @media (max-width: 1730px) {
   .book__bg {
     width: 420px;
@@ -1974,7 +1969,7 @@ li {
   }
 
   .hello__description__list li {
-    max-width: 297px;
+    max-width: 100%;
   }
 
   .hello__nets {
@@ -2083,6 +2078,21 @@ li {
     margin-top: 0;
   }
 
+  .book__info {
+    margin-left: 0;
+    max-width: 100%;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .book__info__title {
+    max-width: 100%;
+  }
+
+  .book__info__subtitle {
+    max-width: 100%;
+  }
+
   .book__info__nets {
     margin-bottom: 30px;
   }
@@ -2119,7 +2129,8 @@ li {
     padding-top: 0;
     margin: 0;
     margin: auto;
-    max-width: 335px;
+    padding-right: 25px;
+    padding-left: 25px;
   }
 
   .hello__description__title {
@@ -2127,12 +2138,14 @@ li {
   }
 
   .hello__description__list {
-    padding-left: 10px;
+    padding-left: 20px;
     margin-top: 30px;
   }
 
   .hello__description__list li {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    margin-right: 0;
+    max-width: 100%;
   }
 
   .hello .container {
@@ -2172,7 +2185,7 @@ li {
   .title-block.promo {
     background-image: url("../img/HarmoniaBecici.png");
     padding: 0;
-    height: calc(100vh - (65px + 42px) - (20px + 50px));
+    height: calc( 100vh - (65px + 42px) - (20px + 50px));
   }
 
   .title-block.promo::after {
@@ -2201,6 +2214,8 @@ li {
         -ms-flex-pack: end;
             justify-content: flex-end;
     padding-bottom: 46px;
+    background: -o-radial-gradient(22% 92%, circle, rgba(14, 13, 13, 0.4) 0, rgba(255, 255, 250, 0));
+    background: radial-gradient(circle at 22% 92%, rgba(14, 13, 13, 0.4) 0, rgba(255, 255, 250, 0));
   }
 
   .main-title.promo {
@@ -2222,6 +2237,7 @@ li {
 
   .last {
     padding-top: 30px;
+    padding-bottom: 30px;
   }
 
   .last__block__days {
