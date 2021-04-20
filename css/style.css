@@ -1351,6 +1351,10 @@ iframe {
   margin-right: 0;
 }
 
+.hello__description__list li:last-child {
+  margin-bottom: 0;
+}
+
 .hello__description__list li span {
   border-bottom: 1px #004a5b solid;
   padding-bottom: 1px;
