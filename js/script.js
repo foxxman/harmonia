@@ -1,6 +1,7 @@
 $(document).ready(function () {
-  const header = document.querySelector('.header');
-  const mainPromo = document.querySelector('.main.promo');
+  const nets = document.querySelector(".hello__nets__block");
+  const header = document.querySelector(".header");
+  const mainPromo = document.querySelector(".main.promo");
   const headerTop = document.querySelector(".header__top");
   const netsBlock = document.querySelector(".hello__nets__block");
   const list = document.querySelector(".hello__description__list");
@@ -21,31 +22,33 @@ $(document).ready(function () {
     });
   //отступ главного экрана в зависимости от высоты шапки
   // console.log(header.clientHeight);
-  mainPromo.style=`padding-top: ${header.clientHeight}px;`
-  
+  mainPromo.style = `padding-top: ${header.clientHeight}px;`;
+
   // менюшка
   $(".header__burger-menu,.menu__header__close").click(function (event) {
     // e.preventDefault();
     console.log("click");
     $(".header__burger-menu, .menu").toggleClass("active");
   });
-  // console.log(document.documentElement.clientHeight);
+
   //перемещение блока nets
-  // console.log(netsBlockBottom, listBottom,maxTopAdd);
   window.addEventListener("scroll", () => {
+    let headerHeight = header.clientHeight;
+    let netsTopWindow = nets.getBoundingClientRect().top; //расстояние до nets от окна
+    let netsBlockTopWindow = netsBlock.getBoundingClientRect().top; //расстояние до nets__block от окна
+    let netsBlockTopParent = netsBlock.offsetTop; //расстояние до nets от родителя
+    let netsBlockBottom =
+      netsBlock.clientHeight + $(".hello__nets__block").offset().top; //нижняя точка блока с соцсетями
+
+    //расстояние от низа откна до низа блока hello__nets__block
+    netsBlockBottomWindow =
+      document.documentElement.clientHeight -
+      netsBlockTopWindow -
+      netsBlock.clientHeight;
+
     if (document.documentElement.clientWidth > 700) {
-      let netsBlockTopWindow = netsBlock.getBoundingClientRect().top; //расстояние до nets от окна
-      let netsBlockTopParent = netsBlock.offsetTop; //расстояние до nets от родителя
-      let netsBlockBottom =
-        netsBlock.clientHeight + $(".hello__nets__block").offset().top; //нижняя точка блока с соцсетями
-      // console.log();
-      //расстояние от низа откна до низа блока hello__nets__block
-      netsBlockBottomWindow =
-        document.documentElement.clientHeight -
-        netsBlockTopWindow -
-        netsBlock.clientHeight;
-        console.log(netsBlockBottom, listBottom,maxTopAdd);
       //дв. вниз
+      // console.log(netsBlockTopParent);
       if (
         netsBlockTopWindow <= netsBlockIdent &&
         netsBlockBottom <= listBottom
@@ -56,7 +59,6 @@ $(document).ready(function () {
           topAdd = maxTopAdd;
         }
         netsBlock.style = `top: ${topAdd}px;`;
-        
       }
 
       //дв. вверх
