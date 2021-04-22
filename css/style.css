@@ -2083,9 +2083,9 @@ iframe {
     max-width: 100%;
     -ms-flex-pack: distribute;
         justify-content: space-around;
-    -webkit-box-align: baseline;
-        -ms-flex-align: baseline;
-            align-items: baseline;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 
   .book {
@@ -2135,8 +2135,8 @@ iframe {
   }
 
   .hello__nets__block__item.book__item {
-    margin-right: 0;
-    margin-left: 0;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
   }
 }
 
@@ -2349,6 +2349,11 @@ iframe {
   .menu__body__line {
     padding-left: 0px;
   }
+
+  .last__title.main-title.promo {
+    max-width: 100%;
+    margin-right: 10px;
+  }
 }
 
 @media (max-width: 520px) {
@@ -2445,6 +2450,17 @@ iframe {
 
   .book__bg {
     height: 234px;
+  }
+}
+
+@media (max-width: 377px) {
+  .book__info__nets {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 }
 

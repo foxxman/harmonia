@@ -1,18 +1,7 @@
 $(document).ready(function () {
-  const nets = document.querySelector(".hello__nets__block");
   const header = document.querySelector(".header");
   const mainPromo = document.querySelector(".main.promo");
   const headerTop = document.querySelector(".header__top");
-  const netsBlock = document.querySelector(".hello__nets__block");
-  const list = document.querySelector(".hello__description__list");
-  const netsBlockIdent =
-    (document.documentElement.clientHeight - netsBlock.clientHeight) / 2;
-  //нижняя точка блока списка
-  const listBottom =
-    list.clientHeight + $(".hello__description__list").offset().top;
-  //верхняя точка дорожки для соцсетей
-  const netsTop = $(".hello__nets").offset().top;
-  const maxTopAdd = listBottom - netsTop - netsBlock.clientHeight;
 
   // изменение контента в шапке при малых экранах
   if (document.documentElement.clientWidth < 860)
@@ -31,45 +20,77 @@ $(document).ready(function () {
     $(".header__burger-menu, .menu").toggleClass("active");
   });
 
-  //перемещение блока nets
+  //=================================================================
+  //ПРОМОТКА БЛОКА СОЦСЕТЕЙ
+  //=================================================================
+  let netsBlockHeader,
+    netsBlockParent,
+    netsBlockBottom,
+    distanceBottom,
+    distanceTop;
+
+  const hello = document.querySelector(".hello");
+  const netsParent = document.querySelector(".hello__nets"); //родительский блок подвижного
+  // const netsParentDocument = $(netsParent).offset().top; //расстояние от родительского блока до верхнего края документа
+  const netsBlock = document.querySelector(".hello__nets__block "); //подвижный блок
+  const windowHeight = document.documentElement.clientHeight; //высота окна
+  const windowWidth = document.documentElement.clientWidth; //шрина окна
+  const netsBlockHeight = netsBlock.clientHeight; //высота подвижного блока
+  const netsBlockWidth = netsBlock.clientWidth; //шрина подвижного блока
+  const headerHeight = header.clientHeight; //высота шапки
+
+  const helloBottom = hello.clientHeight + $(hello).offset().top; // высота section hello
+  // console.log(helloBottom);
+  const maxAdd = helloBottom - $(netsParent).offset().top - netsBlockHeight;
+
+  if (windowWidth > 700) {
+    distanceTop = (windowHeight - headerHeight - netsBlockHeight) / 2; //целевой отступ от подвижного блока сверху и снизу
+    distanceBottom = distanceTop;
+  } else {
+    distanceTop = 40; //целевой отступ от подвижного блока сверху и снизу
+    distanceBottom = (windowHeight - headerHeight - netsBlockHeight) / 2;
+  }
+
+  //обновление переменных при скролле
+  const initVariables = () => {
+    //расстояние от блока с соцсетями до низа шапки
+    netsBlockHeader = netsBlock.getBoundingClientRect().top - headerHeight;
+    //расстояние от подвижного блока до верха родителя
+    netsBlockParent =
+      netsBlock.getBoundingClientRect().top -
+      netsParent.getBoundingClientRect().top;
+    //расстояние от нижнего края окна до подвижного блока
+    netsBlockBottom =
+      windowHeight - netsBlock.getBoundingClientRect().top - netsBlockHeight;
+  };
+
   window.addEventListener("scroll", () => {
-    let headerHeight = header.clientHeight;
-    let netsTopWindow = nets.getBoundingClientRect().top; //расстояние до nets от окна
-    let netsBlockTopWindow = netsBlock.getBoundingClientRect().top; //расстояние до nets__block от окна
-    let netsBlockTopParent = netsBlock.offsetTop; //расстояние до nets от родителя
-    let netsBlockBottom =
-      netsBlock.clientHeight + $(".hello__nets__block").offset().top; //нижняя точка блока с соцсетями
-
-    //расстояние от низа откна до низа блока hello__nets__block
-    netsBlockBottomWindow =
-      document.documentElement.clientHeight -
-      netsBlockTopWindow -
-      netsBlock.clientHeight;
-
-    if (document.documentElement.clientWidth > 700) {
-      //дв. вниз
-      // console.log(netsBlockTopParent);
-      if (
-        netsBlockTopWindow <= netsBlockIdent &&
-        netsBlockBottom <= listBottom
-      ) {
-        let topAdd = netsBlockTopParent + (netsBlockIdent - netsBlockTopWindow);
-        //чтобы не перескакивал через границу снизу
-        if (topAdd > maxTopAdd) {
-          topAdd = maxTopAdd;
-        }
-        netsBlock.style = `top: ${topAdd}px;`;
+    initVariables();
+    if (windowWidth > 700) {
+      if (netsBlockHeader < distanceTop) {
+        let top = netsBlockParent + (distanceTop - netsBlockHeader); //добавочный отступ сверху
+        if (top > maxAdd) top = maxAdd;
+        netsBlock.style = `top: ${top}px;`;
+        console.log("down");
       }
 
-      //дв. вверх
-      if (netsBlockBottomWindow <= netsBlockIdent && netsBlockTopParent >= 0) {
-        let topRemove =
-          netsBlockTopParent - (netsBlockIdent - netsBlockBottomWindow);
-        //чтобы не перескакивал через границу сверху
-        if (topRemove < 0) {
-          topRemove = 0;
-        }
-        netsBlock.style = `top: ${topRemove}px;`;
+      if (netsBlockBottom < distanceBottom) {
+        let top = netsBlockParent - (distanceBottom - netsBlockBottom);
+        if (top < 0) top = 0;
+        netsBlock.style = `top: ${top}px;`;
+        console.log("up");
+      }
+    } else {
+      let top = headerHeight + 11;
+      let left = (windowWidth - netsBlockWidth) / 2;
+      if (netsBlockHeader < 10) {
+        netsBlock.style = `position: fixed; top: ${top}px; left: ${left}px;`;
+      }
+      if (
+        netsParent.getBoundingClientRect().top >
+        netsBlock.getBoundingClientRect().top
+      ) {
+        netsBlock.style = ``;
       }
     }
   });
