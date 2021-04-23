@@ -42,7 +42,14 @@ $(document).ready(function () {
   const helloBottom = hello.clientHeight + $(hello).offset().top; // высота section hello
   // console.log(helloBottom);
   const maxAdd = helloBottom - $(netsParent).offset().top - netsBlockHeight;
-  console.log("maxAdd: ", maxAdd);
+  console.log("helloBottom: ", helloBottom);
+  console.log("netsParentTop: ", $(netsParent).offset().top);
+  console.log("netsBlockHeight: ", netsBlockHeight);
+
+  console.log(
+    "maxAdd = helloBottom - $(netsParent).offset().top - netsBlockHeight = ",
+    maxAdd
+  );
   if (windowWidth > 700) {
     distanceTop = (windowHeight - headerHeight - netsBlockHeight) / 2; //целевой отступ от подвижного блока сверху и снизу
     distanceBottom = distanceTop;
@@ -71,14 +78,14 @@ $(document).ready(function () {
         let top = netsBlockParent + (distanceTop - netsBlockHeader); //добавочный отступ сверху
         if (top > maxAdd) top = maxAdd;
         netsBlock.style = `top: ${top}px;`;
-        console.log("down");
+        // console.log("down");
       }
 
       if (netsBlockBottom < distanceBottom) {
         let top = netsBlockParent - (distanceBottom - netsBlockBottom);
         if (top < 0) top = 0;
         netsBlock.style = `top: ${top}px;`;
-        console.log("up");
+        // console.log("up");
       }
     } else {
       let top = headerHeight + 11;
