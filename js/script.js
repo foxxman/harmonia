@@ -42,7 +42,7 @@ $(document).ready(function () {
   const helloBottom = hello.clientHeight + $(hello).offset().top; // высота section hello
   // console.log(helloBottom);
   const maxAdd = helloBottom - $(netsParent).offset().top - netsBlockHeight;
-
+  console.log("maxAdd: ", maxAdd);
   if (windowWidth > 700) {
     distanceTop = (windowHeight - headerHeight - netsBlockHeight) / 2; //целевой отступ от подвижного блока сверху и снизу
     distanceBottom = distanceTop;
