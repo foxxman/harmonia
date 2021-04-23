@@ -11,7 +11,7 @@ $(document).ready(function () {
     });
   //отступ главного экрана в зависимости от высоты шапки
   // console.log(header.clientHeight);
-  mainPromo.style = `padding-top: ${header.clientHeight}px;`;
+  mainPromo.style = `padding-top: ${header.getBoundingClientRect().height}px;`;
 
   // менюшка
   $(".header__burger-menu,.menu__header__close").click(function (event) {
@@ -27,29 +27,19 @@ $(document).ready(function () {
     netsBlockParent,
     netsBlockBottom,
     distanceBottom,
-    distanceTop;
+    distanceTop,
+    helloBottom,
+    maxAdd;
 
   const hello = document.querySelector(".hello");
   const netsParent = document.querySelector(".hello__nets"); //родительский блок подвижного
-  // const netsParentDocument = $(netsParent).offset().top; //расстояние от родительского блока до верхнего края документа
   const netsBlock = document.querySelector(".hello__nets__block "); //подвижный блок
-  const windowHeight = document.documentElement.clientHeight; //высота окна
+  const windowHeight = document.documentElement.getBoundingClientRect().height; //высота окна
   const windowWidth = document.documentElement.clientWidth; //шрина окна
-  const netsBlockHeight = netsBlock.clientHeight; //высота подвижного блока
+  const netsBlockHeight = netsBlock.getBoundingClientRect().height; //высота подвижного блока
   const netsBlockWidth = netsBlock.clientWidth; //шрина подвижного блока
-  const headerHeight = header.clientHeight; //высота шапки
+  const headerHeight = header.getBoundingClientRect().height; //высота шапки
 
-  const helloBottom = hello.clientHeight + $(hello).offset().top; // высота section hello
-  // console.log(helloBottom);
-  const maxAdd = helloBottom - $(netsParent).offset().top - netsBlockHeight;
-  console.log("helloBottom: ", helloBottom);
-  console.log("netsParentTop: ", $(netsParent).offset().top);
-  console.log("netsBlockHeight: ", netsBlockHeight);
-
-  console.log(
-    "maxAdd = helloBottom - $(netsParent).offset().top - netsBlockHeight = ",
-    maxAdd
-  );
   if (windowWidth > 700) {
     distanceTop = (windowHeight - headerHeight - netsBlockHeight) / 2; //целевой отступ от подвижного блока сверху и снизу
     distanceBottom = distanceTop;
@@ -60,6 +50,8 @@ $(document).ready(function () {
 
   //обновление переменных при скролле
   const initVariables = () => {
+    helloBottom = hello.getBoundingClientRect().height + $(hello).offset().top; // высота section hello
+    maxAdd = helloBottom - $(netsParent).offset().top - netsBlockHeight;
     //расстояние от блока с соцсетями до низа шапки
     netsBlockHeader = netsBlock.getBoundingClientRect().top - headerHeight;
     //расстояние от подвижного блока до верха родителя
