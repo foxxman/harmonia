@@ -39,20 +39,21 @@ $(document).ready(function () {
   const netsBlockHeight = netsBlock.getBoundingClientRect().height; //высота подвижного блока
   const netsBlockWidth = netsBlock.clientWidth; //шрина подвижного блока
   const headerHeight = header.getBoundingClientRect().height; //высота шапки
-  const browserHeaderHeight = window.screen.height - window.innerHeight;
-  const titleBlock = document.querySelector(".title-block.promo");
+  const browserHeaderHeight = window.innerHeight - window.screen.height;
+  const titleBlock = document.querySelector(".title-block");
 
-  titleBlockHeight = titleBlock.clientHeight - browserHeaderHeight;
-  titleBlock.style = `height: ${titleBlockHeight};`;
-  console.log(
-    titleBlock.clientHeight,
-    browserHeaderHeight,
-    `height: ${titleBlockHeight};`
-  );
+
+  // console.log(
+  //   titleBlock.clientHeight,
+  //   browserHeaderHeight,
+  //   `height: ${titleBlockHeight};`
+  // );
   if (windowWidth > 700) {
     distanceTop = (windowHeight - headerHeight - netsBlockHeight) / 2; //целевой отступ от подвижного блока сверху и снизу
     distanceBottom = distanceTop;
   } else {
+    titleBlockHeight = titleBlock.clientHeight - browserHeaderHeight;
+    titleBlock.style = `height: ${titleBlockHeight}px;`;
     distanceTop = 40; //целевой отступ от подвижного блока сверху и снизу
     distanceBottom = (windowHeight - headerHeight - netsBlockHeight) / 2;
   }
