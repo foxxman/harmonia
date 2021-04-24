@@ -39,9 +39,8 @@ $(document).ready(function () {
   const netsBlockHeight = netsBlock.getBoundingClientRect().height; //высота подвижного блока
   const netsBlockWidth = netsBlock.clientWidth; //шрина подвижного блока
   const headerHeight = header.getBoundingClientRect().height; //высота шапки
-  const browserHeaderHeight = window.innerHeight - window.screen.height;
+  const browserHeaderHeight = window.screen.height - window.innerHeight;
   const titleBlock = document.querySelector(".title-block");
-
 
   // console.log(
   //   titleBlock.clientHeight,
@@ -52,10 +51,11 @@ $(document).ready(function () {
     distanceTop = (windowHeight - headerHeight - netsBlockHeight) / 2; //целевой отступ от подвижного блока сверху и снизу
     distanceBottom = distanceTop;
   } else {
-
     titleBlockHeight = titleBlock.clientHeight - browserHeaderHeight;
     titleBlock.style = `height: ${titleBlockHeight}px;`;
-    document.querySelector('.hello__description__title').innerHTML = browserHeaderHeight;
+    document.querySelector(
+      ".hello__description__title"
+    ).innerHTML = browserHeaderHeight;
     distanceTop = 40; //целевой отступ от подвижного блока сверху и снизу
     distanceBottom = (windowHeight - headerHeight - netsBlockHeight) / 2;
   }
