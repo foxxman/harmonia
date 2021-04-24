@@ -55,7 +55,7 @@ $(document).ready(function () {
 
     titleBlockHeight = titleBlock.clientHeight - browserHeaderHeight;
     titleBlock.style = `height: ${titleBlockHeight}px;`;
-    document.querySelector('.hello__description__title').innerHTML = titleBlockHeight;
+    document.querySelector('.hello__description__title').innerHTML = browserHeaderHeight;
     distanceTop = 40; //целевой отступ от подвижного блока сверху и снизу
     distanceBottom = (windowHeight - headerHeight - netsBlockHeight) / 2;
   }
