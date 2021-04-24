@@ -1465,7 +1465,7 @@ iframe {
   bottom: -1px;
   right: 0;
   position: absolute;
-  width: 541px;
+  width: 450px;
   height: calc(100px + 390px);
   background: #004a5b;
   z-index: -1;
@@ -1574,7 +1574,7 @@ iframe {
 
 @media (max-width: 1730px) {
   .book__bg {
-    width: 420px;
+    width: 360px;
   }
 }
 
@@ -1650,6 +1650,14 @@ iframe {
     margin-left: 8px;
   }
 
+  .hello__nets__block__item.book__item:nth-child(3) {
+    margin-bottom: 0;
+  }
+
+  .hello__nets__block__item.book__item:nth-child(4) {
+    margin-bottom: 0;
+  }
+
   .hello__nets__block__item.book__item img {
     max-width: 28px;
   }
@@ -1670,12 +1678,12 @@ iframe {
 
   .book__img img {
     width: 323px;
-    height: 423px;
-    margin-top: 0;
+    height: 411px;
+    margin-top: 2px;
   }
 
   .book__bg {
-    width: 390px;
+    width: 320px;
     height: 396px;
   }
 }
@@ -1773,6 +1781,11 @@ iframe {
   .book__info__nets.text-middle span {
     font-size: 30px;
   }
+
+  .book__img img {
+    width: 293px;
+    height: 372px;
+  }
 }
 
 @media (max-width: 1230px) {
@@ -1790,8 +1803,8 @@ iframe {
   }
 
   .book__img img {
-    width: 340px;
-    height: 429px;
+    width: 326px;
+    height: 415px;
   }
 
   .book__bg {
@@ -1993,7 +2006,7 @@ iframe {
 
   .main-title.promo {
     max-width: 550px;
-    margin-left: 20px;
+    margin-left: 10px;
   }
 
   .hello__description__list li {
@@ -2001,7 +2014,7 @@ iframe {
   }
 
   .hello__nets {
-    top: -200px;
+    top: -236px;
   }
 
   .hello__nets__block__item {
@@ -2080,12 +2093,14 @@ iframe {
   }
 
   .book__info__nets {
-    max-width: 100%;
+    max-width: 350px;
     -ms-flex-pack: distribute;
         justify-content: space-around;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    margin: auto;
+    margin-bottom: 30px;
   }
 
   .book {
@@ -2128,10 +2143,6 @@ iframe {
 
   .book__info__subtitle {
     max-width: 100%;
-  }
-
-  .book__info__nets {
-    margin-bottom: 30px;
   }
 
   .hello__nets__block__item.book__item {
@@ -2255,7 +2266,7 @@ iframe {
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;
-    padding-bottom: 46px;
+    padding-bottom: 100px;
     background: -o-radial-gradient(22% 92%, circle, rgba(14, 13, 13, 0.4) 0, rgba(255, 255, 250, 0));
     background: radial-gradient(circle at 22% 92%, rgba(14, 13, 13, 0.4) 0, rgba(255, 255, 250, 0));
   }
@@ -2389,7 +2400,7 @@ iframe {
 
 @media (max-width: 500px) {
   .text-big {
-    font-size: 29px;
+    font-size: 31px;
     line-height: 34px;
   }
 }
@@ -2413,7 +2424,7 @@ iframe {
 
 @media (max-width: 400px) {
   .text-big {
-    font-size: 24px;
+    font-size: 28px;
     line-height: 30px;
   }
 
@@ -2429,9 +2440,9 @@ iframe {
     max-width: 100%;
     -ms-flex-pack: distribute;
         justify-content: space-around;
-    -webkit-box-align: baseline;
-        -ms-flex-align: baseline;
-            align-items: baseline;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 
   .book__info__title {
@@ -2453,14 +2464,20 @@ iframe {
   }
 }
 
-@media (max-width: 377px) {
-  .book__info__nets {
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+@media (max-width: 380px) {
+  .hello__nets__block__item.book__item {
+    width: 130px;
+    height: 48px;
+  }
+
+  .hello__nets__block__item.book__item img {
+    max-width: 19px;
+    margin-left: 5px;
+    max-height: 15px;
+  }
+
+  .book__info__nets.text-middle span {
+    font-size: 13px;
   }
 }
 
@@ -2491,21 +2508,12 @@ iframe {
 }
 
 @media (max-width: 360px) {
-  .book__info__nets {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+  .text-big {
+    font-size: 27px;
+    line-height: 30px;
   }
 
   .hello__nets__block__item.book__item {
-    margin: auto;
-    margin-bottom: 5px;
-  }
-
-  .hello__nets__block__item.book__item:nth-child(even) {
-    margin-left: 0;
-    margin: auto;
     margin-bottom: 5px;
   }
 
@@ -2526,6 +2534,13 @@ iframe {
 
   .hello__description__title {
     margin-left: 5px;
+  }
+}
+
+@media (max-width: 330px) {
+  .text-big {
+    font-size: 24px;
+    line-height: 30px;
   }
 }
 

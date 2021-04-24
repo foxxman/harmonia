@@ -39,7 +39,16 @@ $(document).ready(function () {
   const netsBlockHeight = netsBlock.getBoundingClientRect().height; //высота подвижного блока
   const netsBlockWidth = netsBlock.clientWidth; //шрина подвижного блока
   const headerHeight = header.getBoundingClientRect().height; //высота шапки
+  const browserHeaderHeight = window.screen.height - window.innerHeight;
+  const titleBlock = document.querySelector(".title-block.promo");
 
+  titleBlockHeight = titleBlock.clientHeight - browserHeaderHeight;
+  titleBlock.style = `height: ${titleBlockHeight};`;
+  console.log(
+    titleBlock.clientHeight,
+    browserHeaderHeight,
+    `height: ${titleBlockHeight};`
+  );
   if (windowWidth > 700) {
     distanceTop = (windowHeight - headerHeight - netsBlockHeight) / 2; //целевой отступ от подвижного блока сверху и снизу
     distanceBottom = distanceTop;
