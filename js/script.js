@@ -52,8 +52,10 @@ $(document).ready(function () {
     distanceTop = (windowHeight - headerHeight - netsBlockHeight) / 2; //целевой отступ от подвижного блока сверху и снизу
     distanceBottom = distanceTop;
   } else {
+
     titleBlockHeight = titleBlock.clientHeight - browserHeaderHeight;
     titleBlock.style = `height: ${titleBlockHeight}px;`;
+    document.querySelector('.hello__description__title').innerHTML = titleBlockHeight;
     distanceTop = 40; //целевой отступ от подвижного блока сверху и снизу
     distanceBottom = (windowHeight - headerHeight - netsBlockHeight) / 2;
   }
