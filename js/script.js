@@ -41,6 +41,10 @@ $(document).ready(function () {
   const headerHeight = header.getBoundingClientRect().height; //высота шапки
   const browserHeaderHeight = window.screen.height - window.innerHeight;
   const titleBlock = document.querySelector(".title-block");
+  const menu = document.querySelector('.menu');
+  if (windowWidth > 1025){
+    menu.style = `padding-top: ${headerHeight}px;`
+  }
 
   // console.log(
   //   titleBlock.clientHeight,
@@ -53,10 +57,9 @@ $(document).ready(function () {
   } else {
     titleBlockHeight = titleBlock.clientHeight - browserHeaderHeight;
     titleBlock.style = `height: ${titleBlockHeight}px;`;
-    // document.querySelector(
-    //   ".hello__description__title"
-    // ).innerHTML = browserHeaderHeight;
-    distanceTop = 40; //целевой отступ от подвижного блока сверху и снизу
+
+    //целевой отступ от подвижного блока сверху и снизу
+    distanceTop = 40; 
     distanceBottom = (windowHeight - headerHeight - netsBlockHeight) / 2;
   }
 
@@ -92,17 +95,17 @@ $(document).ready(function () {
         // console.log("up");
       }
     } else {
-      let top = headerHeight + 11;
+      // let top = headerHeight + 11;
       let left = (windowWidth - netsBlockWidth) / 2;
-      if (netsBlockHeader < 10) {
-        netsBlock.style = `position: fixed; top: ${top}px; left: ${left}px;`;
-      }
-      if (
-        netsParent.getBoundingClientRect().top >
-        netsBlock.getBoundingClientRect().top
-      ) {
-        netsBlock.style = ``;
-      }
+      // if (netsBlockHeader < 10) {
+        netsBlock.style = `position: fixed; bottom: 12px; left: ${left}px;`;
+      // }
+      // if (
+      //   netsParent.getBoundingClientRect().top >
+      //   netsBlock.getBoundingClientRect().top
+      // ) {
+      //   netsBlock.style = ``;
+      // }
     }
   });
 });

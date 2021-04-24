@@ -213,7 +213,7 @@ button {
 }
 
 .header__bottom {
-  height: 81px !important;
+  height: 74px !important;
   border-top: 2px #769ea7 solid;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -371,7 +371,6 @@ a.header__section:last-child {
 
 .menu {
   width: 832px;
-  padding-top: 107px;
   position: fixed;
   left: -100%;
   top: 0;
@@ -1297,7 +1296,7 @@ iframe {
 
 .title-block.promo {
   padding-top: 57px;
-  height: calc(100vh - (81px + 42px));
+  height: calc(100vh - (74px + 42px));
   margin: 0;
   background-image: url("../img/budva.jpeg");
   background-repeat: no-repeat;
@@ -1719,6 +1718,12 @@ iframe {
   .hello__description__list {
     width: 100%;
   }
+
+  .hello__nets__block {
+    -webkit-transition: all 0.1s ease;
+    -o-transition: all 0.1s ease;
+    transition: all 0.1s ease;
+  }
 }
 
 @media (max-width: 1400px) {
@@ -2078,8 +2083,6 @@ iframe {
     width: 95vw;
     padding: 31px 55px 35px 37px;
     margin-top: 40px;
-    margin-right: 0;
-    margin-left: auto;
   }
 }
 
@@ -2163,7 +2166,8 @@ iframe {
     line-height: 38px;
   }
 
-  .text-small {
+  .text-small,
+  .text-extra-small {
     font-size: 18px;
     line-height: 20px;
   }
@@ -2171,11 +2175,6 @@ iframe {
   .text-middle {
     font-size: 22px;
     line-height: 28px;
-  }
-
-  .text-extra-small {
-    font-size: 12px;
-    line-height: 17px;
   }
 
   .hello__description {
@@ -2238,7 +2237,7 @@ iframe {
   .title-block.promo {
     background-image: url("../img/HarmoniaBecici.png");
     padding: 0;
-    height: calc( 100vh - (81px + 42px) - (20px + 50px));
+    height: calc( 100vh - (74px + 42px) - (20px + 50px));
   }
 
   .title-block.promo::after {
@@ -2290,7 +2289,7 @@ iframe {
 
   .last {
     padding-top: 30px;
-    padding-bottom: 30px;
+    padding-bottom: 80px;
   }
 
   .last__block__days {
@@ -2363,7 +2362,8 @@ iframe {
 
   .last__title.main-title.promo {
     max-width: 100%;
-    margin-right: 10px;
+    margin-right: 25px;
+    margin-left: 25px;
   }
 }
 
@@ -2418,7 +2418,7 @@ iframe {
   }
 
   .last__block {
-    padding: 17px 20px 0px 45px;
+    padding: 17px 20px 17px 45px;
   }
 }
 
