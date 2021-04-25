@@ -42,7 +42,7 @@ $(document).ready(function () {
   const browserHeaderHeight = window.screen.height - window.innerHeight;
   const titleBlock = document.querySelector(".title-block");
   const menu = document.querySelector(".menu");
-  const helloDescription = document.querySelector('.hello__description');
+  const helloDescription = document.querySelector(".hello__description");
 
   if (windowWidth > 1025) {
     menu.style = `padding-top: ${headerHeight}px;`;
@@ -55,10 +55,18 @@ $(document).ready(function () {
     titleBlockHeight = titleBlock.clientHeight - browserHeaderHeight;
     titleBlock.style = `height: ${titleBlockHeight}px;`;
     let left = (windowWidth - netsBlockWidth) / 2;
-    netsBlock.style = `left: ${left}px;`;
-    if(helloDescription.getBoundingClientRect().top<windowHeight){
-      helloDescription.style=`margin-top: ${windowHeight - helloDescription.getBoundingClientRect().top}px;`
+    let bottom =
+      (windowHeight -
+        headerHeight -
+        titleBlock.getBoundingClientRect().height) /
+      2;
+    netsBlock.style = `bottom:${bottom}px; left: ${left}px;`;
+    if (helloDescription.getBoundingClientRect().top < windowHeight) {
+      helloDescription.style = `margin-top: ${
+        windowHeight - helloDescription.getBoundingClientRect().top
+      }px;`;
     }
+
     //целевой отступ от подвижного блока сверху и снизу
     distanceTop = 40;
     distanceBottom = (windowHeight - headerHeight - netsBlockHeight) / 2;
