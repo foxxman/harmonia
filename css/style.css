@@ -2218,7 +2218,6 @@ iframe {
 
   .hello__nets__block {
     position: fixed;
-    bottom: 12px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
