@@ -55,11 +55,8 @@ $(document).ready(function () {
     titleBlockHeight = titleBlock.clientHeight - browserHeaderHeight;
     titleBlock.style = `height: ${titleBlockHeight}px;`;
     let left = (windowWidth - netsBlockWidth) / 2;
-    let bottom =
-      (windowHeight -
-        headerHeight -
-        titleBlock.getBoundingClientRect().height) /
-      2;
+    let bottom = (windowHeight - headerHeight - titleBlock.getBoundingClientRect().height) / 3;
+    console.log(windowHeight, headerHeight, titleBlock.getBoundingClientRect().height,bottom);
     netsBlock.style = `bottom:${bottom}px; left: ${left}px;`;
     if (helloDescription.getBoundingClientRect().top < windowHeight) {
       helloDescription.style = `margin-top: ${
