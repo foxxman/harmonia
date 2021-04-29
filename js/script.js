@@ -29,7 +29,8 @@ $(document).ready(function () {
     distanceBottom,
     distanceTop,
     helloBottom,
-    maxAdd;
+    maxAdd,
+    firstScroll = true;
 
   const hello = document.querySelector(".hello");
   const netsParent = document.querySelector(".hello__nets"); //родительский блок подвижного
@@ -37,42 +38,46 @@ $(document).ready(function () {
   const windowHeight = document.documentElement.getBoundingClientRect().height; //высота окна
   const windowWidth = document.documentElement.clientWidth; //шрина окна
   const netsBlockHeight = netsBlock.getBoundingClientRect().height; //высота подвижного блока
-  const netsBlockWidth = netsBlock.clientWidth; //шрина подвижного блока
+  // const netsBlockWidth = netsBlock.clientWidth; //шрина подвижного блока
   const headerHeight = header.getBoundingClientRect().height; //высота шапки
-  const browserHeaderHeight = window.screen.height - window.innerHeight;
-  const titleBlock = document.querySelector(".title-block");
+  // const browserHeaderHeight = window.screen.height - window.innerHeight;
+  // const titleBlock = document.querySelector(".title-block");
   const menu = document.querySelector(".menu");
-  const helloDescription = document.querySelector(".hello__description");
+  // const helloDescription = document.querySelector(".hello__description");
 
   if (windowWidth > 1025) {
     menu.style = `padding-top: ${headerHeight}px;`;
   }
 
-  if (windowWidth > 700) {
-    distanceTop = (windowHeight - headerHeight - netsBlockHeight) / 2; //целевой отступ от подвижного блока сверху и снизу
-    distanceBottom = distanceTop;
-  } else {
-    titleBlockHeight = titleBlock.clientHeight - browserHeaderHeight;
-    titleBlock.style = `height: ${titleBlockHeight}px;`;
-    let left = (windowWidth - netsBlockWidth) / 2;
-    let bottom = (windowHeight - headerHeight - titleBlock.getBoundingClientRect().height) / 4;
-    console.log(windowHeight, headerHeight, titleBlock.getBoundingClientRect().height,bottom);
-    netsBlock.style = `bottom:${bottom}px; left: ${left}px;`;
-    if (helloDescription.getBoundingClientRect().top < windowHeight) {
-      helloDescription.style = `margin-top: ${
-        windowHeight - helloDescription.getBoundingClientRect().top
-      }px;`;
-    }
-
-    //целевой отступ от подвижного блока сверху и снизу
-    distanceTop = 40;
-    distanceBottom = (windowHeight - headerHeight - netsBlockHeight) / 2;
-  }
+  // if (windowWidth > 700) {
+  distanceTop = (windowHeight - headerHeight - netsBlockHeight) / 2; //целевой отступ от подвижного блока сверху и снизу
+  distanceBottom = distanceTop;
+  // } else {
+  // titleBlockHeight = titleBlock.clientHeight - browserHeaderHeight;
+  // titleBlock.style = `height: ${titleBlockHeight}px;`;
+  // let left = (windowWidth - netsBlockWidth) / 2;
+  // let bottom = (windowHeight - headerHeight - titleBlock.getBoundingClientRect().height) / 4;
+  // console.log(windowHeight, headerHeight, titleBlock.getBoundingClientRect().height,bottom);
+  // netsBlock.style = `bottom:${bottom}px; left: ${left}px;`;
+  // if (helloDescription.getBoundingClientRect().top < windowHeight) {
+  //   helloDescription.style = `margin-top: ${
+  //     windowHeight - helloDescription.getBoundingClientRect().top
+  //   }px;`;
+  // }
+  //целевой отступ от подвижного блока сверху и снизу
+  // distanceTop = 40;
+  // distanceBottom = (windowHeight - headerHeight - netsBlockHeight) / 2;
+  // }
 
   //обновление переменных при скролле
   const initVariables = () => {
-    helloBottom = hello.getBoundingClientRect().height + $(hello).offset().top; // высота section hello
-    maxAdd = helloBottom - $(netsParent).offset().top - netsBlockHeight;
+    if (firstScroll) {
+      //при первом скролле определяем эти переменные
+      helloBottom =
+        hello.getBoundingClientRect().height + $(hello).offset().top; // высота section hello
+      maxAdd = helloBottom - $(netsParent).offset().top - netsBlockHeight;
+      firstScroll = !firstScroll;
+    }
     //расстояние от блока с соцсетями до низа шапки
     netsBlockHeader = netsBlock.getBoundingClientRect().top - headerHeight;
     //расстояние от подвижного блока до верха родителя
@@ -83,10 +88,10 @@ $(document).ready(function () {
     netsBlockBottom =
       windowHeight - netsBlock.getBoundingClientRect().top - netsBlockHeight;
   };
+  if (windowWidth > 700)
+    window.addEventListener("scroll", () => {
+      initVariables();
 
-  window.addEventListener("scroll", () => {
-    initVariables();
-    if (windowWidth > 700) {
       if (netsBlockHeader < distanceTop) {
         let top = netsBlockParent + (distanceTop - netsBlockHeader); //добавочный отступ сверху
         if (top > maxAdd) top = maxAdd;
@@ -100,7 +105,8 @@ $(document).ready(function () {
         netsBlock.style = `top: ${top}px;`;
         // console.log("up");
       }
-    } else {
+
+      // else {
       // let top = headerHeight + 11;
       // let left = (windowWidth - netsBlockWidth) / 2;
       // if (netsBlockHeader < 10) {
@@ -112,6 +118,41 @@ $(document).ready(function () {
       // ) {
       //   netsBlock.style = ``;
       // }
+      // }
+    });
+
+  //=================================================================
+  //ПРОМОТКА КНИЖКИ
+  //=================================================================
+  let bookImgHeader, bookImgToParent, bookImgAdd, bookImgRemove;
+  const bookImgParent = document.querySelector(".book__img");
+  const bookImg = document.querySelector(".book__img img");
+  const bookImgHeight = bookImg.clientHeight; //высота книжки
+
+  const bookDistance = (windowHeight - headerHeight - bookImgHeight) / 2;
+
+  window.addEventListener("scroll", () => {
+    //расстояние от книжки до низа шапки
+    bookImgHeader = bookImg.getBoundingClientRect().top - headerHeight;
+    //расстояние от книжки до верха родителя
+    bookImgToParent =
+      bookImg.getBoundingClientRect().top -
+      bookImgParent.getBoundingClientRect().top;
+    //расстояние от нижнего края окна до книжки
+    bookImgBottom =
+      windowHeight - bookImg.getBoundingClientRect().top - bookImgHeight;
+    if (windowWidth > 1230) {
+      if (bookImgHeader < bookDistance) {
+        bookImgAdd = bookImgToParent + (bookDistance - bookImgHeader);
+        bookImg.style = `top: ${bookImgAdd}px`;
+      }
+      if (bookImgBottom < bookDistance) {
+        bookImgRemove = bookImgToParent - (bookDistance - bookImgBottom);
+        if (bookImgRemove < 0) {
+          bookImgRemove = 0;
+        }
+        bookImg.style = `top: ${bookImgRemove}px`;
+      }
     }
   });
 });
