@@ -54,9 +54,14 @@ $(document).ready(function () {
   distanceBottom = distanceTop;
   // } else {
   if (windowWidth < 700) {
-    titleBlockHeight = titleBlock.clientHeight - browserHeaderHeight;
+    titleBlockHeight =
+      window.screen.height -
+      browserHeaderHeight -
+      headerHeight -
+      netsParent.clientHeight;
     titleBlock.style = `height: ${titleBlockHeight}px;`;
   }
+  // console.log(windowHeight)
   // let left = (windowWidth - netsBlockWidth) / 2;
   // let bottom = (windowHeight - headerHeight - titleBlock.getBoundingClientRect().height) / 4;
   // console.log(windowHeight, headerHeight, titleBlock.getBoundingClientRect().height,bottom);
