@@ -40,8 +40,8 @@ $(document).ready(function () {
   const netsBlockHeight = netsBlock.getBoundingClientRect().height; //высота подвижного блока
   // const netsBlockWidth = netsBlock.clientWidth; //шрина подвижного блока
   const headerHeight = header.getBoundingClientRect().height; //высота шапки
-  // const browserHeaderHeight = window.screen.height - window.innerHeight;
-  // const titleBlock = document.querySelector(".title-block");
+  const browserHeaderHeight = window.screen.height - window.innerHeight;
+  const titleBlock = document.querySelector(".title-block");
   const menu = document.querySelector(".menu");
   // const helloDescription = document.querySelector(".hello__description");
 
@@ -53,8 +53,10 @@ $(document).ready(function () {
   distanceTop = (windowHeight - headerHeight - netsBlockHeight) / 2; //целевой отступ от подвижного блока сверху и снизу
   distanceBottom = distanceTop;
   // } else {
-  // titleBlockHeight = titleBlock.clientHeight - browserHeaderHeight;
-  // titleBlock.style = `height: ${titleBlockHeight}px;`;
+  if (windowWidth < 700) {
+    titleBlockHeight = titleBlock.clientHeight - browserHeaderHeight;
+    titleBlock.style = `height: ${titleBlockHeight}px;`;
+  }
   // let left = (windowWidth - netsBlockWidth) / 2;
   // let bottom = (windowHeight - headerHeight - titleBlock.getBoundingClientRect().height) / 4;
   // console.log(windowHeight, headerHeight, titleBlock.getBoundingClientRect().height,bottom);
