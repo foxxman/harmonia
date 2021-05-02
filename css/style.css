@@ -1521,12 +1521,12 @@ iframe {
 
 .last {
   background-color: #004a5b;
-  padding-top: 100px;
-  padding-bottom: 175px;
+  padding-top: 50px;
+  padding-bottom: 171px;
 }
 
 .last__title {
-  margin-bottom: 50px;
+  margin-bottom: 44px;
 }
 
 .last__block {
@@ -2099,12 +2099,12 @@ iframe {
 
   .book__info__nets {
     max-width: 350px;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    margin: auto;
     margin-bottom: 30px;
   }
 
@@ -2228,7 +2228,7 @@ iframe {
   }
 
   .hello__nets__block {
-    margin: 15px 0;
+    margin: 15px 0 30px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -2415,6 +2415,10 @@ iframe {
     font-size: 31px;
     line-height: 34px;
   }
+
+  .hello__nets__block__item.book__item {
+    width: 47%;
+  }
 }
 
 @media (max-width: 470px) {
@@ -2450,8 +2454,6 @@ iframe {
 
   .book__info__nets {
     max-width: 100%;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
