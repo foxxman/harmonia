@@ -43,16 +43,14 @@ $(document).ready(function () {
   const browserHeaderHeight = window.screen.height - window.innerHeight;
   const titleBlock = document.querySelector(".title-block");
   const menu = document.querySelector(".menu");
-  // const helloDescription = document.querySelector(".hello__description");
 
   if (windowWidth > 1025) {
     menu.style = `padding-top: ${headerHeight}px;`;
   }
 
-  // if (windowWidth > 700) {
   distanceTop = (windowHeight - headerHeight - netsBlockHeight) / 2; //целевой отступ от подвижного блока сверху и снизу
   distanceBottom = distanceTop;
-  // } else {
+
   if (windowWidth < 700) {
     titleBlockHeight =
       window.screen.height -
@@ -61,20 +59,6 @@ $(document).ready(function () {
       netsParent.clientHeight;
     titleBlock.style = `height: ${titleBlockHeight}px;`;
   }
-  // console.log(windowHeight)
-  // let left = (windowWidth - netsBlockWidth) / 2;
-  // let bottom = (windowHeight - headerHeight - titleBlock.getBoundingClientRect().height) / 4;
-  // console.log(windowHeight, headerHeight, titleBlock.getBoundingClientRect().height,bottom);
-  // netsBlock.style = `bottom:${bottom}px; left: ${left}px;`;
-  // if (helloDescription.getBoundingClientRect().top < windowHeight) {
-  //   helloDescription.style = `margin-top: ${
-  //     windowHeight - helloDescription.getBoundingClientRect().top
-  //   }px;`;
-  // }
-  //целевой отступ от подвижного блока сверху и снизу
-  // distanceTop = 40;
-  // distanceBottom = (windowHeight - headerHeight - netsBlockHeight) / 2;
-  // }
 
   //обновление переменных при скролле
   const initVariables = () => {
@@ -113,19 +97,6 @@ $(document).ready(function () {
         // console.log("up");
       }
 
-      // else {
-      // let top = headerHeight + 11;
-      // let left = (windowWidth - netsBlockWidth) / 2;
-      // if (netsBlockHeader < 10) {
-      // netsBlock.style = `position: fixed; bottom: 12px; left: ${left}px;`;
-      // }
-      // if (
-      //   netsParent.getBoundingClientRect().top >
-      //   netsBlock.getBoundingClientRect().top
-      // ) {
-      //   netsBlock.style = ``;
-      // }
-      // }
     });
 
   //=================================================================

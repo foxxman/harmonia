@@ -53,7 +53,7 @@ $(document).ready(function () {
     placesBlockBottom = placesBlockDoc + placesBlockHeight;
   };
 
-  if (windowWidth >= 1240)
+  if (windowWidth >= 1240 && false)
     window.addEventListener("scroll", () => {
       initVariables();
       // console.log(placesBlockHeader, placesBlockDoc, windowHeight);
