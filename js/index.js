@@ -6,6 +6,8 @@ $(document).ready(function () {
   const menu = document.querySelector(".menu");
   const headerHeight = header.getBoundingClientRect().height; //высота шапки
   const windowWidth = document.documentElement.clientWidth; //шрина окна
+  const videoPlayer = document.querySelector('.video-player');
+  const videoPlay = document.querySelector('.video-button__play');
 
   if (windowWidth > 1025) {
     menu.style = `padding-top: ${headerHeight}px;`;
@@ -88,4 +90,36 @@ $(document).ready(function () {
         console.log('up');
       }
     });
+
+  //========VIDEO================
+
+  //скрытие иконки play 
+  const toggleIcon = () => {
+    if (videoPlayer.paused) {
+      videoPlay.classList.remove("fa-play");
+    } else {
+      videoPlay.classList.add("fa-play");
+    }
+  };
+
+  //запуск или остановка видео
+  const togglePlay = () => {
+    if (videoPlayer.paused) {
+      videoPlayer.play();
+    } else {
+      videoPlayer.pause();
+    }
+  };
+
+  if(windowWidth<=750){
+    videoPlayer.removeAttribute('autoplay');
+  }
+  videoPlay.addEventListener('click',()=>{
+    toggleIcon();
+    togglePlay();
+  })
+  videoPlayer.addEventListener('click',()=>{
+    toggleIcon();
+    togglePlay();
+  })
 });
