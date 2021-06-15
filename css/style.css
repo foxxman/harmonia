@@ -4244,6 +4244,10 @@ iframe {
 }
 
 @media (max-width: 500px) {
+  .map {
+    margin-top: 330px;
+  }
+
   .apartaments {
     padding-top: 199px;
     padding-bottom: 70px;
