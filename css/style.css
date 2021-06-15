@@ -577,7 +577,8 @@ a.header__section:last-child {
 }
 
 .title-block {
-  position: relative;
+  position: fixed;
+  width: 100%;
   text-align: center;
   background-image: url("../img/budva.png");
   background-repeat: no-repeat;
@@ -610,6 +611,20 @@ a.header__section:last-child {
   font-size: 2.2vw;
 }
 
+.bg-white {
+  width: 100%;
+  background-color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+.bg-green {
+  width: 100%;
+  background-color: #004a5b;
+  position: relative;
+  z-index: 0;
+}
+
 .map {
   position: relative;
   top: -50px;
@@ -618,6 +633,14 @@ a.header__section:last-child {
   margin: auto;
   background-color: white;
   text-align: center;
+  margin-top: 100vh;
+}
+
+.map__section {
+  width: 100%;
+  background-color: #fff;
+  position: relative;
+  z-index: 1;
 }
 
 .map_description {
@@ -654,6 +677,21 @@ a.header__section:last-child {
   top: 5px;
 }
 
+.map_description span .map__span__bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #004a5b;
+  border: none;
+  padding: 0;
+}
+
+.map_description span .map__span__bg::before {
+  display: none;
+}
+
 iframe {
   margin: auto !important;
   display: block !important;
@@ -678,6 +716,11 @@ iframe {
       -ms-flex-align: center;
           align-items: center;
   color: #004a5b;
+}
+
+.facilities__section {
+  position: relative;
+  z-index: 2;
 }
 
 .facilities__pretitle {
@@ -722,9 +765,16 @@ iframe {
 }
 
 .facilities__button {
-  color: white;
+  position: relative;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: hidden;
+  -webkit-transition: all 0.5s linear;
+  -o-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+  color: #004a5b;
   padding: 24px 30px 25px 30px;
-  background-color: #004a5b;
+  background-color: white;
   font-weight: medium;
   font-size: 20px;
   line-height: 25px;
@@ -736,14 +786,58 @@ iframe {
           align-items: center;
 }
 
+.facilities__button span:last-child {
+  z-index: 2;
+}
+
+.facilities__button::before {
+  content: '';
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 100%;
+  width: 0%;
+  background-color: #004a5b;
+  z-index: 1;
+  -webkit-transform: skew(-20deg);
+      -ms-transform: skew(-20deg);
+          transform: skew(-20deg);
+}
+
 .facilities__button::after {
-  content: url("../img/arrows/arrow_right_small.png");
+  content: url("../img/arrows/arrow_right_small_color.svg");
   margin-left: 73px;
   width: 20px;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.facilities__button::after svg {
+  fill: white;
+}
+
+.facilities__button:hover {
+  color: white;
+}
+
+.facilities__button:hover::before {
+  left: -5%;
+  width: 110%;
+}
+
+.facilities__button:hover::after {
+  fill: white;
+  content: url("../img/arrows/arrow_right_small.png");
+  z-index: 2;
 }
 
 .facilities_options {
-  padding-top: 150px;
+  position: relative;
+  bottom: -180px;
   padding-bottom: 80px;
   margin: auto;
   max-width: 1620px;
@@ -751,6 +845,10 @@ iframe {
   display: -ms-flexbox;
   display: flex;
   min-width: 0;
+}
+
+.facilities_options__section {
+  position: relative;
 }
 
 .facilities_options__item {
@@ -861,7 +959,6 @@ iframe {
 }
 
 .consultation {
-  background-color: #004a5b;
   -webkit-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
@@ -889,7 +986,7 @@ iframe {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding-top: 76px;
+  padding-top: 55px;
   padding-bottom: 74px;
 }
 
@@ -938,8 +1035,6 @@ iframe {
 .apartaments {
   background-color: #004a5b;
   padding-top: 284px;
-  margin-top: -180px;
-  z-index: 1;
   padding-bottom: 85px;
 }
 
@@ -1170,14 +1265,14 @@ iframe {
 
 .video {
   position: relative;
-  margin-bottom: 180px;
+  padding-bottom: 180px;
   margin-top: 70px;
 }
 
 .video-navigation {
   display: none;
   position: absolute;
-  top: 30%;
+  top: calc(45% - 35px);
 }
 
 .video-button {
@@ -1212,7 +1307,7 @@ iframe {
 .video__letter {
   position: absolute;
   right: 21px;
-  bottom: -60px;
+  bottom: 95px;
   width: 40vw;
 }
 
@@ -1223,6 +1318,8 @@ iframe {
 }
 
 .places {
+  position: relative;
+  bottom: -105px;
   color: #004a5b;
   max-width: 1620px;
   margin: auto;
@@ -1323,7 +1420,6 @@ iframe {
 }
 
 .choise {
-  margin-top: -105px;
   background-color: #004a5b;
   padding-bottom: 180px;
   padding-top: 180px;
@@ -1953,6 +2049,240 @@ iframe {
   top: -10px;
 }
 
+@-webkit-keyframes map-span {
+  0% {
+    width: 100%;
+  }
+
+  100% {
+    width: 0%;
+  }
+}
+
+@keyframes map-span {
+  0% {
+    width: 100%;
+  }
+
+  100% {
+    width: 0%;
+  }
+}
+
+@-webkit-keyframes title-animation {
+  0% {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes title-animation {
+  0% {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes pretitle-animation {
+  0% {
+    opacity: 0;
+    padding-left: 0;
+  }
+
+  100% {
+    opacity: 1;
+    padding-left: 113px;
+  }
+}
+
+@keyframes pretitle-animation {
+  0% {
+    opacity: 0;
+    padding-left: 0;
+  }
+
+  100% {
+    opacity: 1;
+    padding-left: 113px;
+  }
+}
+
+@-webkit-keyframes button-animation-long {
+  0% {
+    left: 50%;
+    width: 0;
+  }
+
+  100% {
+    left: 0;
+    width: 100%;
+  }
+}
+
+@keyframes button-animation-long {
+  0% {
+    left: 50%;
+    width: 0;
+  }
+
+  100% {
+    left: 0;
+    width: 100%;
+  }
+}
+
+@-webkit-keyframes button-animation-short {
+  0% {
+    height: 0;
+  }
+
+  100% {
+    height: 100%;
+  }
+}
+
+@keyframes button-animation-short {
+  0% {
+    height: 0;
+  }
+
+  100% {
+    height: 100%;
+  }
+}
+
+.map_description span .map__span__bg {
+  -webkit-animation-name: map-span;
+          animation-name: map-span;
+  -webkit-animation-duration: 0.8s;
+          animation-duration: 0.8s;
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.facilities__title span {
+  position: relative;
+  opacity: 0;
+  -webkit-transform-origin: left center 0;
+      -ms-transform-origin: left center 0;
+          transform-origin: left center 0;
+  -webkit-transform: rotate(10deg);
+      -ms-transform: rotate(10deg);
+          transform: rotate(10deg);
+  -webkit-animation-name: title-animation;
+          animation-name: title-animation;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-delay: 0.44s;
+          animation-delay: 0.44s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.facilities__title span:first-child {
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+}
+
+.facilities__title span:last-child {
+  -webkit-animation-delay: 0.48s;
+          animation-delay: 0.48s;
+}
+
+.facilities__pretitle {
+  opacity: 0;
+  padding-left: 0;
+  -webkit-animation-name: pretitle-animation;
+          animation-name: pretitle-animation;
+  -webkit-animation-duration: 0.8s;
+          animation-duration: 0.8s;
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.facilities__button span:not(span:last-child) {
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  display: block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  z-index: 0;
+  background-color: #004a5b;
+  -webkit-animation-name: button-animation-long;
+          animation-name: button-animation-long;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-duration: 0.7s;
+          animation-duration: 0.7s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.facilities__button span:not(span:last-child):nth-child(1) {
+  top: 0;
+  left: 50%;
+  -webkit-transform-origin: center center;
+      -ms-transform-origin: center center;
+          transform-origin: center center;
+}
+
+.facilities__button span:not(span:last-child):nth-child(2) {
+  height: 0%;
+  width: 2px;
+  right: 0;
+  top: 0;
+  -webkit-transform-origin: center;
+      -ms-transform-origin: center;
+          transform-origin: center;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
+  -webkit-animation-name: button-animation-short;
+          animation-name: button-animation-short;
+}
+
+.facilities__button span:not(span:last-child):nth-child(3) {
+  bottom: 0;
+  left: 50%;
+  -webkit-transform-origin: center center;
+      -ms-transform-origin: center center;
+          transform-origin: center center;
+  -webkit-animation-duration: 0.8s;
+          animation-duration: 0.8s;
+}
+
+.facilities__button span:not(span:last-child):nth-child(4) {
+  height: 0%;
+  width: 2px;
+  left: 0;
+  bottom: 0;
+  -webkit-transform: scaleY(-1);
+      -ms-transform: scaleY(-1);
+          transform: scaleY(-1);
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
+  -webkit-animation-name: button-animation-short;
+          animation-name: button-animation-short;
+}
+
 @media (max-width: 1850px) {
   .apartaments__slider__track {
     padding-left: 5%;
@@ -2063,7 +2393,7 @@ iframe {
     width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
-    padding: 100px 0px 80px 50px;
+    padding: 0px 0px 80px 50px;
     position: relative;
   }
 
@@ -2341,6 +2671,14 @@ iframe {
   .facilities__description {
     margin-left: 200px;
   }
+
+  .video {
+    padding-bottom: 75px;
+  }
+
+  .video__letter {
+    bottom: 8px;
+  }
 }
 
 @media (max-width: 1350px) {
@@ -2378,8 +2716,6 @@ iframe {
   .video {
     overflow: hidden;
     position: relative;
-    padding-bottom: 220px;
-    margin-bottom: 0;
     margin-top: 128px;
     width: 100%;
   }
@@ -2392,19 +2728,18 @@ iframe {
   .video__letter {
     position: absolute;
     right: -8%;
-    bottom: 185px;
     width: 40vw;
   }
 }
 
 @media (max-width: 1240px) {
   .views .video {
-    padding-bottom: 150px;
+    padding-bottom: 0;
     margin-bottom: 0;
   }
 
   .views .video__letter {
-    bottom: 128px;
+    bottom: 0;
   }
 
   .places {
@@ -2948,7 +3283,7 @@ iframe {
   }
 
   .facilities__title-block {
-    margin-right: 90px;
+    padding-left: 5vw;
     margin-bottom: 35px;
   }
 
@@ -3050,12 +3385,8 @@ iframe {
     width: 100%;
   }
 
-  .views .video {
-    padding-bottom: 30px;
-  }
-
   .video {
-    margin-bottom: 220px;
+    padding-bottom: 220px;
     margin-top: 35px;
     width: 100%;
     display: -webkit-box;
@@ -3527,13 +3858,14 @@ iframe {
   }
 
   .facilities__button::after {
-    content: url("../img/arrows/arrow_right_small.png");
+    content: url("../img/arrows/arrow_right_small_color.svg");
     margin-left: 94px;
     width: 20px;
   }
 
-  .facilities_options {
-    padding-top: 50px;
+  .facilities_options__section {
+    margin-top: -110px;
+    z-index: 1;
   }
 
   .facilities_options__item {
@@ -3702,6 +4034,30 @@ iframe {
   .main-title.promo {
     max-width: 480px;
   }
+
+@-webkit-keyframes pretitle-animation {
+    0% {
+      opacity: 0;
+      padding-left: 0;
+    }
+
+    100% {
+      opacity: 1;
+      padding-left: 33px;
+    }
+}
+
+@keyframes pretitle-animation {
+    0% {
+      opacity: 0;
+      padding-left: 0;
+    }
+
+    100% {
+      opacity: 1;
+      padding-left: 33px;
+    }
+}
 }
 
 @media (max-width: 680px) {
