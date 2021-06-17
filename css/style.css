@@ -3755,6 +3755,7 @@ iframe {
   }
 
   .title-block {
+    height: calc(100vh);
     background-image: url("../img/HarmoniaBecici.png");
   }
 
@@ -4245,7 +4246,7 @@ iframe {
 
 @media (max-width: 500px) {
   .map {
-    margin-top: 330px;
+    margin-top: 100vh;
   }
 
   .apartaments {
