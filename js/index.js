@@ -27,8 +27,7 @@ $(document).ready(function () {
     });
   //отступ главного экрана в зависимости от высоты шапки
   main.style = `padding-top: ${header.getBoundingClientRect().height}px;`;
-  map.style = `margin-top: ${headerHeight + titleBlockHeight}px;`;
-  // docBg.style = `height: ${documentHeight - titleBlockHeight - headerHeight - 50}px; top: ${titleBlockHeight + headerHeight+50}px`;
+ 
   // менюшка
   $(".header__burger-menu,.menu__header__close").click(function () {
     $(".header__burger-menu, .menu").toggleClass("active");
