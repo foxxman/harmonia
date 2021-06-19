@@ -215,7 +215,6 @@ button {
 
 .header__bottom {
   height: 74px !important;
-  border-top: 2px #769ea7 solid;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -281,24 +280,7 @@ button {
   margin-bottom: 7px;
 }
 
-.header__burger-menu::after {
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-  content: "";
-  height: 2px;
-  width: 40px;
-  background-color: #fff;
-}
-
-.header__burger-menu::before {
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-  content: "";
-  height: 2px;
-  width: 40px;
-  background-color: #fff;
+.header__burger-menu div:last-child {
   margin-bottom: 7px;
 }
 
@@ -308,7 +290,7 @@ button {
           transform: scale(0);
 }
 
-.header__burger-menu.active::after {
+.header__burger-menu.active div:last-child {
   -webkit-transform: rotate(-45deg);
       -ms-transform: rotate(-45deg);
           transform: rotate(-45deg);
@@ -316,7 +298,7 @@ button {
   bottom: 9px;
 }
 
-.header__burger-menu.active::before {
+.header__burger-menu.active div:first-child {
   -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
@@ -332,6 +314,8 @@ button {
 }
 
 .header__logo img {
+  position: relative;
+  z-index: 902;
   margin: auto;
   max-height: 44px;
 }
@@ -364,10 +348,6 @@ a.header__section:last-child {
   border: none;
 }
 
-.orange {
-  background-color: #ec8833 !important;
-}
-
 .header__section.right__padding {
   padding: 0 37px;
 }
@@ -397,6 +377,7 @@ a.header__section:last-child {
 
 .menu__header {
   display: none;
+  border-bottom: 2px solid #769ea7;
 }
 
 .menu__header__close {
@@ -494,7 +475,6 @@ a.header__section:last-child {
 
 .menu__body {
   padding-top: 70px;
-  border-top: 2px solid #769ea7;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -579,6 +559,7 @@ a.header__section:last-child {
 .title-block {
   position: fixed;
   width: 100%;
+  height: 100vh;
   text-align: center;
   background-image: url("../img/budva.png");
   background-repeat: no-repeat;
@@ -1760,6 +1741,7 @@ iframe {
 
 .hello__description__text {
   font-weight: 500;
+  margin-bottom: 50px;
 }
 
 .hello__description__list {
@@ -1914,7 +1896,7 @@ iframe {
 
 .book__info__title {
   font-weight: 500;
-  max-width: 667px;
+  max-width: 800px;
   margin-bottom: 37px;
 }
 
@@ -1944,8 +1926,6 @@ iframe {
 .book__img img {
   position: relative;
   top: 0;
-  -webkit-box-shadow: 0px 0px 80px #004a5b4d;
-          box-shadow: 0px 0px 80px #004a5b4d;
   width: 369px;
   height: 483px;
   margin-top: 2px;
@@ -2118,6 +2098,154 @@ iframe {
 
   100% {
     height: 100%;
+  }
+}
+
+@-webkit-keyframes cover-animated {
+  0% {
+    height: 100%;
+  }
+
+  100% {
+    height: 0%;
+  }
+}
+
+@keyframes cover-animated {
+  0% {
+    height: 100%;
+  }
+
+  100% {
+    height: 0%;
+  }
+}
+
+@-webkit-keyframes header-logo-animated {
+  0% {
+    top: 40vh;
+  }
+
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes header-logo-animated {
+  0% {
+    top: 40vh;
+  }
+
+  100% {
+    top: 0;
+  }
+}
+
+@-webkit-keyframes header-section__border-animation {
+  0% {
+    height: 0;
+  }
+
+  100% {
+    height: 100%;
+  }
+}
+
+@keyframes header-section__border-animation {
+  0% {
+    height: 0;
+  }
+
+  100% {
+    height: 100%;
+  }
+}
+
+@-webkit-keyframes header-bottom__border-animation {
+  0% {
+    left: 50%;
+    width: 0;
+  }
+
+  100% {
+    left: 0;
+    width: 100vw;
+  }
+}
+
+@keyframes header-bottom__border-animation {
+  0% {
+    left: 50%;
+    width: 0;
+  }
+
+  100% {
+    left: 0;
+    width: 100vw;
+  }
+}
+
+@-webkit-keyframes burger-animation {
+  0% {
+    width: 0;
+    margin-left: -35px;
+  }
+
+  100% {
+    width: 40px;
+    margin-left: 0px;
+  }
+}
+
+@keyframes burger-animation {
+  0% {
+    width: 0;
+    margin-left: -35px;
+  }
+
+  100% {
+    width: 40px;
+    margin-left: 0px;
+  }
+}
+
+@-webkit-keyframes header__section-animation {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes header__section-animation {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes orange-animation {
+  0% {
+    background-color: #004a5b;
+  }
+
+  100% {
+    background-color: #ec8833;
+  }
+}
+
+@keyframes orange-animation {
+  0% {
+    background-color: #004a5b;
+  }
+
+  100% {
+    background-color: #ec8833;
   }
 }
 
@@ -2301,6 +2429,169 @@ iframe {
 .animated__button.invert-colors:hover::after {
   fill: #004a5b;
   content: url("../img/arrows/arrow_right_small_color.svg");
+}
+
+.cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 899;
+  background-color: #004a5b;
+  -webkit-animation-name: cover-animated;
+          animation-name: cover-animated;
+  -webkit-animation-duration: 1.8s;
+          animation-duration: 1.8s;
+  -webkit-animation-delay: 2.5s;
+          animation-delay: 2.5s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.header__logo img {
+  position: relative;
+  top: 40vh;
+  -webkit-animation-name: header-logo-animated;
+          animation-name: header-logo-animated;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-delay: 2.2s;
+          animation-delay: 2.2s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #769ea7;
+  z-index: 902;
+  -webkit-animation-name: header-bottom__border-animation;
+          animation-name: header-bottom__border-animation;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-delay: 3s;
+          animation-delay: 3s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.header__top::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #769ea7;
+  z-index: 902;
+  -webkit-animation-name: header-bottom__border-animation;
+          animation-name: header-bottom__border-animation;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-delay: 3.3s;
+          animation-delay: 3.3s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.header__section:not(:last-child) {
+  border: none;
+  position: relative;
+}
+
+.header__section:not(:last-child) .header__section__border {
+  display: none;
+}
+
+.header__section:not(:last-child)::before {
+  opacity: 1;
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background-color: #769ea7;
+  width: 2px;
+  height: 0;
+  -webkit-animation-name: header-section__border-animation;
+          animation-name: header-section__border-animation;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-delay: 3.2s;
+          animation-delay: 3.2s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.header__burger-menu div {
+  -webkit-animation-name: burger-animation;
+          animation-name: burger-animation;
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
+  -webkit-animation-delay: 3.8s;
+          animation-delay: 3.8s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  width: 0;
+  margin-left: -35px;
+}
+
+.header__burger-menu div:first-child {
+  -webkit-animation-delay: 3.7s;
+          animation-delay: 3.7s;
+  width: 0;
+}
+
+.header__burger-menu div:last-child {
+  -webkit-animation-delay: 3.9s;
+          animation-delay: 3.9s;
+  width: 0;
+}
+
+.header__section:not(.header__logo) span,
+.header__section:not(.header__logo)::after {
+  opacity: 0;
+  -webkit-animation-name: header__section-animation;
+          animation-name: header__section-animation;
+  -webkit-animation-duration: 0.6s;
+          animation-duration: 0.6s;
+  -webkit-animation-delay: 3.8s;
+          animation-delay: 3.8s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.header__section.orange {
+  background-color: #004a5b;
+  -webkit-animation-name: orange-animation;
+          animation-name: orange-animation;
+  -webkit-animation-duration: 0.6s;
+          animation-duration: 0.6s;
+  -webkit-animation-delay: 3.8s;
+          animation-delay: 3.8s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.header__top span {
+  opacity: 0;
+  -webkit-animation-name: header__section-animation;
+          animation-name: header__section-animation;
+  -webkit-animation-duration: 0.6s;
+          animation-duration: 0.6s;
+  -webkit-animation-delay: 3.5s;
+          animation-delay: 3.5s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.overflow {
+  overflow: hidden;
 }
 
 @media (max-width: 1850px) {
@@ -2969,6 +3260,7 @@ iframe {
 @media (max-width: 1170px) {
   .hello__description__text {
     max-width: 760px;
+    margin-bottom: 20px;
   }
 
   .hello__nets {
@@ -3005,7 +3297,7 @@ iframe {
 }
 
 @media (max-width: 1050px) {
-  .main-title {
+  .main-title:not(.main-title.promo) {
     font-size: 9vw;
     font-weight: normal;
     margin-bottom: 70px;
@@ -3692,7 +3984,8 @@ iframe {
 }
 
 @media (max-width: 730px) {
-  .hello__description__title {
+  .hello__description__title,
+  .hello__description__text {
     margin-bottom: 15px;
   }
 
@@ -4187,10 +4480,6 @@ iframe {
     max-width: 118px;
   }
 
-  .header__burger-menu {
-    width: 70px;
-  }
-
   .header__section {
     padding: 0 20px 0 20px;
   }
@@ -4205,6 +4494,7 @@ iframe {
   }
 
   .header__burger-menu {
+    width: 70px;
     padding-top: 1px;
   }
 
@@ -4213,12 +4503,12 @@ iframe {
     margin-bottom: 7px;
   }
 
-  .header__burger-menu::before {
+  .header__burger-menu div:first-child {
     height: 3px;
     margin-bottom: 7px;
   }
 
-  .header__burger-menu::after {
+  .header__burger-menu div:last-child {
     height: 3px;
   }
 
@@ -4351,7 +4641,7 @@ iframe {
 @media (max-width: 400px) {
   .text-big {
     font-size: 28px;
-    line-height: 30px;
+    line-height: 33px;
   }
 
   .hello__description__list li {

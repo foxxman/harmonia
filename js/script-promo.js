@@ -2,6 +2,7 @@ $(document).ready(function () {
   const header = document.querySelector(".header");
   const mainPromo = document.querySelector(".main.promo");
   const headerTop = document.querySelector(".header__top");
+  const body = document.querySelector("body");
 
   // изменение контента в шапке при малых экранах
   if (document.documentElement.clientWidth < 860)
@@ -15,10 +16,10 @@ $(document).ready(function () {
 
   // менюшка
   $(".header__burger-menu,.menu__header__close").click(function (event) {
-    // e.preventDefault();
-    console.log("click");
+    $(body).toggleClass("overflow");
     $(".header__burger-menu, .menu").toggleClass("active");
   });
+
 
   //=================================================================
   //ПРОМОТКА БЛОКА СОЦСЕТЕЙ
@@ -96,7 +97,6 @@ $(document).ready(function () {
         netsBlock.style = `top: ${top}px;`;
         // console.log("up");
       }
-
     });
 
   //=================================================================
@@ -105,7 +105,8 @@ $(document).ready(function () {
   let bookImgHeader, bookImgToParent, bookImgAdd, bookImgRemove;
   const bookImgParent = document.querySelector(".book__img");
   const bookImg = document.querySelector(".book__img img");
-  const bookImgHeight = bookImg.clientHeight; //высота книжки
+  const bookImgHeight = 0.9 * bookImg.clientHeight; //высота книжки
+  // 0.9 - примерная высота без тени снизу
 
   const bookDistance = (windowHeight - headerHeight - bookImgHeight) / 2;
 

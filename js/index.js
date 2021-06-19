@@ -15,6 +15,7 @@ $(document).ready(function () {
     .querySelector(".title-block")
     .getBoundingClientRect().height;
   const map = document.querySelector(".map");
+  const body = document.querySelector('body');
 
   if (windowWidth > 1025) {
     menu.style = `padding-top: ${headerHeight}px;`;
@@ -31,6 +32,7 @@ $(document).ready(function () {
   // менюшка
   $(".header__burger-menu,.menu__header__close").click(function () {
     $(".header__burger-menu, .menu").toggleClass("active");
+    $(body).toggleClass("overflow");
   });
 
   //========код для главной=====================
