@@ -1681,6 +1681,10 @@ iframe {
   line-height: 72px;
 }
 
+.text-big.promo-blue {
+  white-space: nowrap;
+}
+
 .text-extra-small {
   font-size: 20px;
   line-height: 26px;
@@ -1698,6 +1702,10 @@ iframe {
   padding: 0;
   position: relative;
   z-index: 101;
+}
+
+.main-title.promo-blue {
+  max-width: 1365px;
 }
 
 .main-title.promo.last__title {
@@ -1926,6 +1934,8 @@ iframe {
 .book__img img {
   position: relative;
   top: 0;
+  -webkit-box-shadow: 0px 0px 80px #004a5b4d;
+          box-shadow: 0px 0px 80px #004a5b4d;
   width: 369px;
   height: 483px;
   margin-top: 2px;
@@ -1953,6 +1963,17 @@ iframe {
   background-color: #ec8833;
   padding: 45px 112px 56px 0px;
   position: relative;
+}
+
+.last__block-blue {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.last__block-blue .last__block__text {
+  max-width: 832px;
+  font-size: 35px;
 }
 
 .last__block__text {
@@ -2678,6 +2699,10 @@ iframe {
     max-width: 920px;
   }
 
+  .main-title.promo-blue {
+    max-width: 1365px;
+  }
+
   .hello__nets {
     margin-right: 30px;
   }
@@ -2918,6 +2943,13 @@ iframe {
   }
 }
 
+@media (max-width: 1430px) {
+  .text-big.promo-blue {
+    font-size: 5vw;
+    line-height: 5.5vw;
+  }
+}
+
 @media (max-width: 1400px) {
   .header__contacts {
     display: none;
@@ -2949,8 +2981,24 @@ iframe {
     max-width: 777px;
   }
 
+  .last__block-blue {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    padding-left: 50px;
+  }
+
+  .last__block-blue .last__block__text {
+    line-height: 42px;
+    font-size: 29px;
+    max-width: 690px;
+  }
+
   .last__block__text {
     max-width: 559px;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
   }
 }
 
@@ -3587,6 +3635,10 @@ iframe {
     max-height: 24px;
     max-width: 26px;
   }
+
+  .last__block-blue {
+    padding-left: 10px;
+  }
 }
 
 @media (max-width: 850px) {
@@ -3654,6 +3706,10 @@ iframe {
     width: 95vw;
     padding: 31px 55px 35px 37px;
     margin-top: 40px;
+  }
+
+  .last__block-blue {
+    padding-left: 10px;
   }
 }
 
@@ -4239,6 +4295,12 @@ iframe {
     line-height: 38px;
   }
 
+  .text-big.promo-blue {
+    font-size: 35px;
+    line-height: 38px;
+    white-space: normal;
+  }
+
   .text-small,
   .text-extra-small {
     font-size: 18px;
@@ -4521,6 +4583,10 @@ iframe {
     margin-right: 25px;
     margin-left: 25px;
   }
+
+  .last__block-blue {
+    padding-left: 25px;
+  }
 }
 
 @media (max-width: 520px) {
@@ -4635,6 +4701,10 @@ iframe {
 
   .last__block {
     padding: 17px 20px 17px 45px;
+  }
+
+  .last__block-blue {
+    padding-left: 25px;
   }
 }
 
@@ -4846,6 +4916,12 @@ iframe {
     line-height: 30px;
   }
 
+  .text-big.promo-blue {
+    font-size: 27px;
+    line-height: 30px;
+    white-space: normal;
+  }
+
   .hello__nets__block__item.book__item {
     margin-bottom: 5px;
   }
@@ -4878,6 +4954,12 @@ iframe {
   .text-big {
     font-size: 24px;
     line-height: 30px;
+  }
+
+  .text-big.promo-blue {
+    font-size: 24px;
+    line-height: 30px;
+    white-space: normal;
   }
 }
 

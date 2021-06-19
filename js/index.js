@@ -32,7 +32,7 @@ $(document).ready(function () {
   // менюшка
   $(".header__burger-menu,.menu__header__close").click(function () {
     $(".header__burger-menu, .menu").toggleClass("active");
-    $(body).toggleClass("overflow");
+    if (windowWidth < 1024) $(body).toggleClass("overflow");
   });
 
   //========код для главной=====================

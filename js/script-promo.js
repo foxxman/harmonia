@@ -16,10 +16,9 @@ $(document).ready(function () {
 
   // менюшка
   $(".header__burger-menu,.menu__header__close").click(function (event) {
-    $(body).toggleClass("overflow");
+    if (windowWidth < 1024) $(body).toggleClass("overflow");
     $(".header__burger-menu, .menu").toggleClass("active");
   });
-
 
   //=================================================================
   //ПРОМОТКА БЛОКА СОЦСЕТЕЙ
@@ -105,7 +104,7 @@ $(document).ready(function () {
   let bookImgHeader, bookImgToParent, bookImgAdd, bookImgRemove;
   const bookImgParent = document.querySelector(".book__img");
   const bookImg = document.querySelector(".book__img img");
-  const bookImgHeight = 0.9 * bookImg.clientHeight; //высота книжки
+  const bookImgHeight = bookImg.clientHeight; //высота книжки
   // 0.9 - примерная высота без тени снизу
 
   const bookDistance = (windowHeight - headerHeight - bookImgHeight) / 2;
