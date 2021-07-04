@@ -20,20 +20,22 @@ $(document).ready(function () {
   if (windowWidth > 1025) {
     menu.style = `padding-top: ${headerHeight}px;`;
   }
+  
   // изменение контента в шапке при малых экранах
   if (document.documentElement.clientWidth < 860)
     headerTop.querySelectorAll("span").forEach((span, index) => {
       const spanText = ["Покупка", "Инвестиции", "Аренда"];
       span.innerHTML = spanText[index];
     });
+
   //отступ главного экрана в зависимости от высоты шапки
-  main.style = `padding-top: ${header.getBoundingClientRect().height}px;`;
+  if(header) main.style = `padding-top: ${header.getBoundingClientRect().height}px;`;
  
   // менюшка
-  $(".header__burger-menu,.menu__header__close").click(function () {
-    $(".header__burger-menu, .menu").toggleClass("active");
-    if (windowWidth < 1024) $(body).toggleClass("overflow");
-  });
+  // $(".header__burger-menu,.menu__header__close").click(function () {
+  //   $(".header__burger-menu, .menu").toggleClass("active");
+  //   if (windowWidth < 1024) $(body).toggleClass("overflow");
+  // });
 
   //========код для главной=====================
   let firstScroll = true,

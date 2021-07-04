@@ -556,6 +556,13 @@ a.header__section:last-child {
   margin-right: 23px;
 }
 
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+}
+
 .title-block {
   position: fixed;
   width: 100%;
@@ -1667,8 +1674,8 @@ iframe {
 }
 
 .text-middle {
-  font-size: 40px;
-  line-height: 51px;
+  font-size: 35px;
+  line-height: 46px;
 }
 
 .text-small {
@@ -1971,6 +1978,22 @@ iframe {
           justify-content: flex-end;
 }
 
+.last__block-blue .book__info__subtitle {
+  max-width: 833px;
+}
+
+.last__block-blue ul {
+  margin-top: 0px;
+}
+
+.last__block-blue li {
+  margin-bottom: 0;
+}
+
+.last__block-blue li:first-child {
+  margin-right: 36px;
+}
+
 .last__block-blue .last__block__text {
   max-width: 832px;
   font-size: 35px;
@@ -2004,6 +2027,15 @@ iframe {
   line-height: 30px;
   position: relative;
   top: -10px;
+}
+
+.last .container:last-child {
+  margin-top: 44px;
+  padding-bottom: 100px;
+}
+
+.last .container:last-child .last__title {
+  margin-bottom: 0;
 }
 
 @-webkit-keyframes map-span {
@@ -2611,8 +2643,36 @@ iframe {
           animation-fill-mode: forwards;
 }
 
+.privacy {
+  width: 100%;
+  background-color: #004a5b;
+  padding: 0 0 10px 10px;
+}
+
+.privacy__link {
+  text-decoration: none;
+  color: #cccccc;
+}
+
 .overflow {
   overflow: hidden;
+}
+
+.fd-column {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.align-end {
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.pb-none {
+  padding-bottom: 0;
 }
 
 @media (max-width: 1850px) {
@@ -2712,7 +2772,7 @@ iframe {
   }
 
   .book__info {
-    margin-left: 20px;
+    margin-left: 50px;
   }
 
   .last__block__days {
@@ -2783,7 +2843,7 @@ iframe {
 
   .last__block {
     width: 827px;
-    padding: 55px 88px 47px 80px;
+    padding: 47px 88px 47px 80px;
   }
 }
 
@@ -2863,17 +2923,17 @@ iframe {
   }
 
   .book__img {
-    padding-right: 88px;
+    padding-right: 28px;
   }
 
   .book__img img {
-    width: 323px;
+    width: 310px;
     height: 411px;
     margin-top: 2px;
   }
 
   .book__bg {
-    width: 320px;
+    width: 300px;
     height: 396px;
   }
 }
@@ -2994,6 +3054,15 @@ iframe {
     max-width: 690px;
   }
 
+  .last__block-blue li {
+    max-width: 260px;
+    margin-bottom: 0;
+  }
+
+  .last__block-blue li:first-child {
+    margin-right: 36px;
+  }
+
   .last__block__text {
     max-width: 559px;
     -webkit-box-pack: start;
@@ -3047,8 +3116,8 @@ iframe {
   }
 
   .text-middle {
-    font-size: 36px;
-    line-height: 43px;
+    font-size: 33px;
+    line-height: 45px;
   }
 
   .text-small {
@@ -3254,7 +3323,7 @@ iframe {
 
 @media (max-width: 1230px) {
   .book__info__title {
-    max-width: 506px;
+    max-width: 579px;
   }
 
   .book__img {
@@ -3267,13 +3336,13 @@ iframe {
   }
 
   .book__img img {
-    width: 326px;
+    width: 290px;
     height: 415px;
   }
 
   .book__bg {
-    width: 363px;
-    height: 481px;
+    width: 277px;
+    height: 462px;
     bottom: -2px;
   }
 }
@@ -3422,6 +3491,17 @@ iframe {
     margin-right: 33px;
     max-width: 350px;
   }
+
+  .last__block-blue li {
+    max-width: 260px;
+  }
+
+  .last__block__text {
+    max-width: 559px;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
 }
 
 @media (max-width: 1020px) {
@@ -3541,7 +3621,7 @@ iframe {
   }
 
   .book__bg {
-    width: 322px;
+    width: 270px;
     height: 394px;
   }
 
@@ -4462,6 +4542,10 @@ iframe {
     font-size: 25px;
     line-height: 25px;
   }
+
+  .last .container:last-child {
+    padding-bottom: 0;
+  }
 }
 
 @media (max-width: 640px) {
@@ -4587,6 +4671,11 @@ iframe {
   .last__block-blue {
     padding-left: 25px;
   }
+
+  .last {
+    padding-top: 30px;
+    padding-bottom: 44px;
+  }
 }
 
 @media (max-width: 520px) {
@@ -4621,6 +4710,14 @@ iframe {
 }
 
 @media (max-width: 500px) {
+  .promo-page .header {
+    display: none;
+  }
+
+  .promo-page .cover {
+    display: none;
+  }
+
   .map {
     margin-top: 100vh;
   }
@@ -4657,6 +4754,10 @@ iframe {
   .text-big {
     font-size: 31px;
     line-height: 34px;
+  }
+
+  .title-block.promo {
+    height: calc( 100vh - (20px + 50px));
   }
 
   .hello__nets__block__item.book__item {
@@ -4864,6 +4965,15 @@ iframe {
 
   .last__block__days {
     margin-right: 35px;
+  }
+
+  .privacy {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 }
 
