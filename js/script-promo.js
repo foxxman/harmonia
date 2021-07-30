@@ -32,10 +32,10 @@ $(document).ready(function () {
     }px;`;
 
   // менюшка
-  // $(".header__burger-menu,.menu__header__close").click(function (event) {
-  //   if (windowWidth < 1024) $(body).toggleClass("overflow");
-  //   $(".header__burger-menu, .menu").toggleClass("active");
-  // });
+   $(".header__burger-menu,.menu__header__close").click(function (event) {
+     if (windowWidth < 1024) $(body).toggleClass("overflow");
+     $(".header__burger-menu, .menu").toggleClass("active");
+   });
 
   //отступ менюшки в зависимости от высоты шапки
   if (windowWidth > 1025) {
