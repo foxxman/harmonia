@@ -32,10 +32,10 @@ $(document).ready(function () {
   if(header) main.style = `padding-top: ${header.getBoundingClientRect().height}px;`;
  
   // менюшка
-  // $(".header__burger-menu,.menu__header__close").click(function () {
-  //   $(".header__burger-menu, .menu").toggleClass("active");
-  //   if (windowWidth < 1024) $(body).toggleClass("overflow");
-  // });
+   $(".header__burger-menu,.menu__header__close").click(function () {
+     $(".header__burger-menu, .menu").toggleClass("active");
+     if (windowWidth < 1024) $(body).toggleClass("overflow");
+   });
 
   //========код для главной=====================
   let firstScroll = true,
